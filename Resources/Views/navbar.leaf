@@ -1,0 +1,5 @@
+#set("navbar") {
+Hello NAVBAR
+}
+
+#embed("base")
