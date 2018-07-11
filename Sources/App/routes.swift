@@ -6,4 +6,7 @@ public func routes(_ router: Router) throws {
     let websiteController = WebsiteController()
     try router.register(collection: websiteController)
     
+    let materialsController = MaterialsController()
+    try router.register(collection: materialsController)
+    
 }

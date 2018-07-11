@@ -1,5 +1,58 @@
 #set("content") {
-        <h1 class="text-center x-large">Information úvodní page</h1>
+
+  <section class="background-white color-black">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 col-md-4">
+          <a class="info-thumbnail-link" href="contact.php">
+            <div class="thumbnail info-thumbnail">
+              <div class="caption">
+                <h3><span class="fa fa-flag color-lead"></span> Otevírací doba</h3>
+                  <p><strong class="color-lead">Pondělí - Pátek:</strong> 8:30 - 11:30 12:30 - 16:00</p>
+                  <p><strong class="color-lead">Sobota:</strong>První sobota v měsící Od 9:00 do 11:00</p>
+                  <p><strong class="color-lead">Neděle:</strong> Zavřeno</p>
+                  <hr>
+
+                  <p><strong class="color-lead">Právě je:</strong> #(time) </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+
+            <div class="col-sm-4 col-md-4">
+              <a class="info-thumbnail-link" href="contact.php">
+                <div class="thumbnail info-thumbnail">
+                  <div class="caption">
+                    <h3><span class="fa fa-flag color-lead"></span> Otevírací doba</h3>
+                      <p><strong class="color-lead">Pondělí - Pátek:</strong> 8:30 - 11:30 12:30 - 16:00</p>
+                      <p><strong class="color-lead">Sobota:</strong>První sobota v měsící Od 9:00 do 11:00</p>
+                      <p><strong class="color-lead">Neděle:</strong> Zavřeno</p>
+                      <hr>
+
+                      <p><strong class="color-lead">Právě je:</strong> <?php echo "".date('H:i').""; ?> </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-sm-4 col-md-4">
+              <a class="info-thumbnail-link" href="contact.php">
+                <div class="thumbnail info-thumbnail">
+                  <div class="caption">
+                    <h3><span class="fa fa-flag color-lead"></span> Otevírací doba</h3>
+                      <p><strong class="color-lead">Pondělí - Pátek:</strong> 8:30 - 11:30 12:30 - 16:00</p>
+                      <p><strong class="color-lead">Sobota:</strong>První sobota v měsící Od 9:00 do 11:00</p>
+                      <p><strong class="color-lead">Neděle:</strong> Zavřeno</p>
+                      <hr>
+
+                      <p><strong class="color-lead">Právě je:</strong> <?php echo "".date('H:i').""; ?> </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+        <h1 class="text-center x-large">Information úvodní page: #(text)</h1>
       <p class="lead text-center">Information thumbnails are the workhorse of entire template. You can use them to display any type of content and there are many ways for you to play with them: you can change the colours, add and remove elements and change their order, add icons...</p>
       <div class="row">
         <div class="col-sm-4 col-md-4">
@@ -57,6 +110,25 @@
           </div>
         </div>
       </div>
+
+      <section class="background-belize-hole color-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="info-row">
+                <div class="content info">
+                  <h1 class="info-head"><span>Kolektivní systém REMA</span></h1>
+                  <p><strong>REMA Systém je neziskově hospodařící akciová společnost, která vznikla pro splnění povinností daných novelou zákona o odpadech. Systém byl založen 14. února 2005.</strong></p>
+                    <p>Vznik REMA Systému iniciovali největší dovozci a výrobci informačních technologií a telekomunikací v ČR. Impulsem k jeho založení byla novelizace zákona č. 185/2001 Sb. o odpadech. Ta dává od 13. srpna 2005 za povinnost výrobcům a dovozcům elektrozařízení vytvořit systém, který je povinen zajistit a financovat zpětný odběr, zpracování a ekologicky šetrné odstranění elektrozařízení.</p>
+
+                </div>
+                <div class="content link">
+                  <a href="http://www.remasystem.cz/" class="btn btn-lead btn-lg pull-right">Přejít na REMA.cz</a>
+                </div>
+              </div>
+            </div>
+          </div>      </div>
+      </section>
 
 }
 

@@ -1,12 +1,14 @@
 import FluentPostgreSQL
 import Vapor
 import Leaf
+import Authentication
 
 /// Called before your application initializes.
 public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
     /// Register providers first
     try services.register(FluentPostgreSQLProvider())
     try services.register(LeafProvider())
+    try services.register(AuthenticationProvider())
 
     /// Register routes to the router
     let router = EngineRouter.default()
@@ -52,6 +54,7 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
 
     /// Configure migrations
     var migrations = MigrationConfig()
+    migrations.add(model: Materials.self, database: .psql)
     services.register(migrations)
     
     config.prefer(LeafRenderer.self, for: ViewRenderer.self)

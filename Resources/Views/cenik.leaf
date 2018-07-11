@@ -1,0 +1,38 @@
+#set("content") {
+  <h1>hello cenik</h1>
+<div class="container">
+
+  <table class="table table-border table-hover">
+    <thead class="thead-light">
+      <tr class="bg-primary">
+        <th>
+          Title
+        </th>
+        <th>
+          Popis
+        </th>
+        <th>
+          Cena
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      #for(material in cenik) {
+        <tr>
+          <td>
+            #(material.title)
+          </td>
+          <td>
+            #(material.desc)
+          </td>
+          <td>
+            #(material.price)
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+}
+
+#embed("base")
