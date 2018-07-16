@@ -30,8 +30,7 @@ struct WebsiteController: RouteCollection {
         task.resume()
          */
       
-        let hour = Date()
-        let time = hour.getTodayString()
+        let time = "333"
         
         return Materials.query(on: req).filter(\.mainpage == "1").all().flatMap(to: View.self) { result in
             let result = result.isEmpty ? nil : result
@@ -66,9 +65,7 @@ struct WebsiteController: RouteCollection {
     
     func createMaterialPostHandler(_ req: Request, data: Materials) throws -> Future<Response> {
         return data.save(on: req).map(to: Response.self) { mat in
-            guard let id = data.id else {
-                throw Abort(.internalServerError)
-            }
+            
             return req.redirect(to: "/")
         }
     }
