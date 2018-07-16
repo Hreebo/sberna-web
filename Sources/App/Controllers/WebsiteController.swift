@@ -119,7 +119,7 @@ struct CenikContent: Encodable {
 }
 
 struct LoginContext: Encodable {
-    let title: String = "Log In"
+    let title: String = "Log In To"
 }
 
 struct LoginPostData: Content {

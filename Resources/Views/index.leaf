@@ -1,5 +1,7 @@
 #set("content") {
 
+  <h1 class="text-center x-large">Výkup a zracování odpadů.</h1>
+<p class="lead text-center"> </p>
   <section class="background-white color-black">
     <div class="container">
       <div class="row">
@@ -53,8 +55,7 @@
               </a>
             </div>
 
-        <h1 class="text-center x-large">Information úvodní page: #(text)</h1>
-      <p class="lead text-center">Information thumbnails are the workhorse of entire template. You can use them to display any type of content and there are many ways for you to play with them: you can change the colours, add and remove elements and change their order, add icons...</p>
+
       <div class="row">
         <div class="col-sm-4 col-md-4">
           <div class="info-thumbnail-link">
