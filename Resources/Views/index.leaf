@@ -4,15 +4,13 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-4 col-md-4">
-          <a class="info-thumbnail-link" href="contact.php">
+          <a class="info-thumbnail-link" href="/contact" >
             <div class="thumbnail info-thumbnail">
               <div class="caption">
                 <h3><span class="fa fa-flag color-lead"></span> Otevírací doba</h3>
                   <p><strong class="color-lead">Pondělí - Pátek:</strong> 8:30 - 11:30 12:30 - 16:00</p>
-                  <p><strong class="color-lead">Sobota:</strong>První sobota v měsící Od 9:00 do 11:00</p>
+                  <p><strong class="color-lead">Sobota:</strong> První sobota v měsící od 9:00 do 11:00</p>
                   <p><strong class="color-lead">Neděle:</strong> Zavřeno</p>
-                  <hr>
-
                   <p><strong class="color-lead">Právě je:</strong> #(time) </p>
               </div>
             </div>
@@ -21,16 +19,19 @@
 
 
             <div class="col-sm-4 col-md-4">
-              <a class="info-thumbnail-link" href="contact.php">
+              <a class="info-thumbnail-link" href="/cenik">
                 <div class="thumbnail info-thumbnail">
                   <div class="caption">
-                    <h3><span class="fa fa-flag color-lead"></span> Otevírací doba</h3>
-                      <p><strong class="color-lead">Pondělí - Pátek:</strong> 8:30 - 11:30 12:30 - 16:00</p>
-                      <p><strong class="color-lead">Sobota:</strong>První sobota v měsící Od 9:00 do 11:00</p>
-                      <p><strong class="color-lead">Neděle:</strong> Zavřeno</p>
-                      <hr>
-
-                      <p><strong class="color-lead">Právě je:</strong> <?php echo "".date('H:i').""; ?> </p>
+                    <h3><span class="fa fa-flag color-lead"></span> Aktuální ceny</h3>
+                    #if(count(mainpageMaterials) > 0) {
+                      #for(result in mainpageMaterials) {
+                        <p><strong class="color-lead">#(result.title)</strong> #(result.price) Kč/Kg</p>
+                      }
+                    } else {
+                      <p>
+                        No Content there.
+                      </p>
+                    }
                   </div>
                 </div>
               </a>

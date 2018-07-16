@@ -1,7 +1,6 @@
 #set("content") {
-  <h1>hello cenik</h1>
-<div class="container">
 
+<div class="container">
   <table class="table table-border table-hover">
     <thead class="thead-light">
       <tr class="bg-primary">
@@ -14,9 +13,13 @@
         <th>
           Cena
         </th>
+        <th>
+          Edit
+        </th>
       </tr>
     </thead>
     <tbody>
+      #if(cenik) {
       #for(material in cenik) {
         <tr>
           <td>
@@ -26,10 +29,22 @@
             #(material.desc)
           </td>
           <td>
-            #(material.price)
+            #(material.price) Kč/Kg
+          </td>
+          <td>
+            <form method="post" action="/materials/#(material.id)/delete">
+              <a class="btn btn-primary" href="/material/#(material.id)/edit" role="button">Edit</a>&nbsp;
+              <input class="btn btn-danger" type="submit" value="Delete" />
+            </form>
           </td>
         </tr>
       }
+    } else {
+      <tr>
+          <h1><strong>There arent any materials</strong></h1>
+      </tr>
+
+    }
     </tbody>
   </table>
 </div>
