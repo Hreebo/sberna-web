@@ -62,10 +62,9 @@
               <div class="col-md-3">
                 <h3>Menu</h3>
                 <ul class="nav-footer">
-                    <li class="active"><a href="index.php">Home</a></li>
-                    <li><a href="cenik.php">Cenik</a></li>
-                    <li><a href="faq.php">FAQ</a></li>
-                    <li><a href="contact.php">Kontakt</a></li>
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/cenik">Cenik</a></li>
+                    <li><a href="/kontakt">Kontakt</a></li>
                 </ul>
               </div>
               <div class="col-md-4">
@@ -89,7 +88,7 @@
                 <hr>
                 <div class="row">
                   <div class="col-md-6">
-                    Všechno práva vyhrazena &copy; 2016 <a href="http://lukashrebik.com">lukashrebik.com</a>
+                    Všechno práva vyhrazena &copy; 2018 <a href="http://www.sbernakrmelin.cz">LH Store s.r.o.</a>
                   </div>
 
                   </div>

@@ -18,6 +18,17 @@ struct WebsiteController: RouteCollection {
     }
     
     func indexHandler(_ req: Request) throws -> Future<View> {
+        
+        /*
+        let url = URL(string: "http://www.stackoverflow.com")
+        
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+            let result = String(data: data!, encoding: .utf8)
+            print(result)
+        }
+        
+        task.resume()
+         */
       
         let hour = Date()
         let time = hour.getTodayString()
