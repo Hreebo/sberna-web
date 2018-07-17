@@ -5,17 +5,19 @@
     <thead class="thead-light">
       <tr class="bg-primary">
         <th>
-          Title
+          Název položky
         </th>
         <th>
-          Popis
+          Základná popis
         </th>
         <th>
-          Cena
+          Cena Kč/Kg
         </th>
-        <th>
-          Edit
-        </th>
+        #if(userLoggedIn) {
+          <th>
+            Edit
+          </th>
+        }
       </tr>
     </thead>
     <tbody>
@@ -31,12 +33,15 @@
           <td>
             #(material.price) Kč/Kg
           </td>
-          <td>
-            <form method="post" action="/materials/#(material.id)/delete">
-              <a class="btn btn-primary" href="/material/#(material.id)/edit" role="button">Edit</a>&nbsp;
-              <input class="btn btn-danger" type="submit" value="Delete" />
-            </form>
-          </td>
+          #if(userLoggedIn) {
+            <td>
+              <form method="post" action="/materials/#(material.id)/delete">
+                <a class="btn btn-primary" href="/material/#(material.id)/edit" role="button">Edit</a>&nbsp;
+                <input class="btn btn-danger" type="submit" value="Delete" />
+              </form>
+            </td>
+          }
+
         </tr>
       }
     } else {

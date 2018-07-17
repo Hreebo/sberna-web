@@ -9,4 +9,7 @@ public func routes(_ router: Router) throws {
     let materialsController = MaterialsController()
     try router.register(collection: materialsController)
     
+    let userController = UserController()
+    try router.register(collection: userController)
+    
 }

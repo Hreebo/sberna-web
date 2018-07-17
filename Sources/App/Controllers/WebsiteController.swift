@@ -6,37 +6,49 @@ import Foundation
 
 struct WebsiteController: RouteCollection {
     func boot(router: Router) throws {
-        router.get(use: indexHandler)
-        router.get("cenik", use: cenikHandler)
-        router.get("contact", use: contactHandler)
-        router.get("login", use: loginHandler)
-        router.get("createMaterials", use: createMaterialHandler)
-        router.post("materials", Materials.parameter, "delete", use: deleteMaterialHandler)
-        router.get("material", Materials.parameter, "edit", use: editMaterialHandler)
-        router.post("material", Materials.parameter, "edit", use: editMaterialPostHandler)
+        let authSessionRoute = router.grouped(User.authSessionsMiddleware())
+        authSessionRoute.get(use: indexHandler)
+        authSessionRoute.get("cenik", use: cenikHandler)
+        authSessionRoute.get("contact", use: contactHandler)
         
-        router.post(Materials.self, at: "createMaterials", use: createMaterialPostHandler)
+        authSessionRoute.get("login", use: loginHandler)
+        authSessionRoute.post(LoginPostData.self, at: "login", use: loginPostHandler)
+        authSessionRoute.post("logout", use: logoutHandler)
+        
+        
+        authSessionRoute.post(Materials.self, at: "createMaterials", use: createMaterialPostHandler)
+        
+        let protectedRoutes = authSessionRoute.grouped(RedirectMiddleware<User>(path: "/login"))
+        protectedRoutes.get("createMaterials", use: createMaterialHandler)
+        protectedRoutes.get("material", Materials.parameter, "edit", use: editMaterialHandler)
+        protectedRoutes.post("material", Materials.parameter, "edit", use: editMaterialPostHandler)
+        protectedRoutes.post("materials", Materials.parameter, "delete", use: deleteMaterialHandler)
     }
     
     func indexHandler(_ req: Request) throws -> Future<View> {
         return Materials.query(on: req).filter(\.mainpage == "1").all().flatMap(to: View.self) { result in
             let result = result.isEmpty ? nil : result
-            let context = IndexContent(title: "Homepage", text: "Toto je tesovaci page.",
-                                    isOpen: false, mainpageMaterials: result)
+            let userLoggedIn = try req.isAuthenticated(User.self)
+            let context = IndexContent(title: "Homepage",
+                                    mainpageMaterials: result, userLoggedIn: userLoggedIn)
             return try req.view().render("index", context)
         }
     }
     
     func contactHandler(_ req: Request) throws -> Future<View> {
-        return try req.view().render("contact")
+        let userLoggedIn = try req.isAuthenticated(User.self)
+        let context = ContactContent(title: "Kontakt", userLoggedIn: userLoggedIn)
+        return try req.view().render("contact", context)
     }
 
     func cenikHandler(_ req: Request) throws -> Future<View> {
+        let userlogin = true
         return Materials.query(on: req)
             .sort(\.title, .ascending)
             .all().flatMap(to: View.self) { cenik in
             let materialData = cenik.isEmpty ? nil : cenik
-            let context = CenikContent(title: "Cenik", cenik: materialData)
+            let userLoggedIn = try req.isAuthenticated(User.self)
+            let context = CenikContent(title: "Cenik", cenik: materialData, userLoggedIn: userLoggedIn)
             return try req.view().render("cenik", context)
         }
     }
@@ -46,8 +58,21 @@ struct WebsiteController: RouteCollection {
         return try req.view().render("login", context)
     }
     
-    func loginPostHandler(_ req: Request, userData: LoginPostData) throws -> Future<View> {
-        return try req.view().render("/")
+    func loginPostHandler(_ req: Request, userData: LoginPostData) throws -> Future<Response> {
+        return User.authenticate(username: userData.username, password: userData.password, using: BCryptDigest(), on: req)
+            .map(to: Response.self) { user in
+                guard let user = user else {
+                    return req.redirect(to: "/login")
+                }
+                
+                try req.authenticateSession(user)
+                return req.redirect(to: "/")
+        }
+    }
+    
+    func logoutHandler(_ req: Request) throws -> Response {
+        try req.unauthenticateSession(User.self)
+        return req.redirect(to: "/")
     }
     
     func createMaterialHandler(_ req: Request) throws -> Future<View> {
@@ -95,18 +120,23 @@ struct WebsiteController: RouteCollection {
 
 struct IndexContent: Encodable {
     let title: String
-    let text: String
-    let isOpen: Bool?
     let mainpageMaterials: [Materials]?
+    let userLoggedIn: Bool
 }
 
 struct CenikContent: Encodable {
     let title: String
     let cenik: [Materials]?
+    let userLoggedIn: Bool
+}
+
+struct ContactContent: Encodable {
+    let title: String
+    let userLoggedIn: Bool
 }
 
 struct LoginContext: Encodable {
-    let title: String = "Log In To"
+    let title: String = "Log In"
 }
 
 struct LoginPostData: Content {

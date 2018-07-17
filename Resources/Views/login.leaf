@@ -1,31 +1,19 @@
 #set("content") {
-          <h1><span>Login</span></h1>
-          <div class="row">
-            <div class="col-sm-12 col-md-offset-4 col-md-4">
-              <div class="thumbnail info-thumbnail background-lead color-white">
-                <div class="caption">
-                  <h3><span class="fa fa-user"></span> Login</h3>
-                  <form role="form">
-                    <div class="form-group">
-                      <label for="exampleInputEmail2">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword2">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-                    </div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"> Remember me
-                      </label>
-                    </div>
-                    <button type="submit" class="btn btn-default">Login</button>
-                    <span class="color-white"><button type="button" class="btn btn-link pull-right">Register</button></span>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>  
+  <div class="container-page container">
+    <form method="post">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" name="username" class="form-control" id="username"/>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control" id="password"/>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+  </div>
 }
 
 #embed("base")
