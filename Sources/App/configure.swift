@@ -63,5 +63,9 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     
     config.prefer(LeafRenderer.self, for: ViewRenderer.self)
     config.prefer(MemoryKeyedCache.self, for: KeyedCache.self)
+    
+    var commandConfig = CommandConfig.default()
+    commandConfig.use(RevertCommand.self, as: "revert")
+    services.register(commandConfig)
 
 }

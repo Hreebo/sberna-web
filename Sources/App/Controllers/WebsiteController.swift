@@ -15,7 +15,6 @@ struct WebsiteController: RouteCollection {
         authSessionRoute.post(LoginPostData.self, at: "login", use: loginPostHandler)
         authSessionRoute.post("logout", use: logoutHandler)
         
-        
         authSessionRoute.post(Materials.self, at: "createMaterials", use: createMaterialPostHandler)
         
         let protectedRoutes = authSessionRoute.grouped(RedirectMiddleware<User>(path: "/login"))
@@ -42,7 +41,6 @@ struct WebsiteController: RouteCollection {
     }
 
     func cenikHandler(_ req: Request) throws -> Future<View> {
-        let userlogin = true
         return Materials.query(on: req)
             .sort(\.title, .ascending)
             .all().flatMap(to: View.self) { cenik in
