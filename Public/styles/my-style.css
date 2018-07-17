@@ -15,7 +15,13 @@
 
 .empty-div {
   width: 100%;
-  height: 500px;
+  height: 5px;
+}
+
+.footer-div {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
 }
 
 .customnav {
