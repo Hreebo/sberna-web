@@ -1,0 +1,7 @@
+#set("content") {
+<div class="container-page">
+</div>
+<h1>Kontakt</h1>
+}
+
+#embed("base")

@@ -1,6 +1,8 @@
 #set("content") {
-  <form method="post">
+  <div class="container">
 
+
+  <form method="post">
   <div class="form-row">
 
     <div class="form-group col-md-6">
@@ -40,7 +42,7 @@
             <option  value="1">Ano</option>
           }
 
-          
+
 
 
       </select>
@@ -57,7 +59,7 @@
 
   <button type="submit" class="btn btn-primary">#if(editing){Uložit změnu} else {Uložit}</button>
 </form>
-
+</div>
 <div class="empty-div"></div>
 
 }

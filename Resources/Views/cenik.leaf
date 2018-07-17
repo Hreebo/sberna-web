@@ -1,6 +1,6 @@
 #set("content") {
 
-<div class="container">
+<div class="container-page container">
   <table class="table table-border table-hover">
     <thead class="thead-light">
       <tr class="bg-primary">

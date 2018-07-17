@@ -8,6 +8,7 @@ struct WebsiteController: RouteCollection {
     func boot(router: Router) throws {
         router.get(use: indexHandler)
         router.get("cenik", use: cenikHandler)
+        router.get("contact", use: contactHandler)
         router.get("login", use: loginHandler)
         router.get("createMaterials", use: createMaterialHandler)
         router.post("materials", Materials.parameter, "delete", use: deleteMaterialHandler)
@@ -18,26 +19,16 @@ struct WebsiteController: RouteCollection {
     }
     
     func indexHandler(_ req: Request) throws -> Future<View> {
-        
-        /*
-        let url = URL(string: "http://www.stackoverflow.com")
-        
-        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-            let result = String(data: data!, encoding: .utf8)
-            print(result)
-        }
-        
-        task.resume()
-         */
-      
-        let time = "333"
-        
         return Materials.query(on: req).filter(\.mainpage == "1").all().flatMap(to: View.self) { result in
             let result = result.isEmpty ? nil : result
             let context = IndexContent(title: "Homepage", text: "Toto je tesovaci page.",
-                                       time: "\(time)", isOpen: false, mainpageMaterials: result)
+                                    isOpen: false, mainpageMaterials: result)
             return try req.view().render("index", context)
         }
+    }
+    
+    func contactHandler(_ req: Request) throws -> Future<View> {
+        return try req.view().render("contact")
     }
 
     func cenikHandler(_ req: Request) throws -> Future<View> {
@@ -105,7 +96,6 @@ struct WebsiteController: RouteCollection {
 struct IndexContent: Encodable {
     let title: String
     let text: String
-    let time: String
     let isOpen: Bool?
     let mainpageMaterials: [Materials]?
 }

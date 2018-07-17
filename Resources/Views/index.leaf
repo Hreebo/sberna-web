@@ -1,9 +1,7 @@
 #set("content") {
 
-  <h1 class="text-center x-large">Výkup a zracování odpadů.</h1>
-<p class="lead text-center"> </p>
   <section class="background-white color-black">
-    <div class="container">
+    <div class="container-page container">
       <div class="row">
         <div class="col-sm-4 col-md-4">
           <a class="info-thumbnail-link" href="/contact" >
@@ -12,8 +10,7 @@
                 <h3><span class="fa fa-flag color-lead"></span> Otevírací doba</h3>
                   <p><strong class="color-lead">Pondělí - Pátek:</strong> 8:30 - 11:30 12:30 - 16:00</p>
                   <p><strong class="color-lead">Sobota:</strong> První sobota v měsící od 9:00 do 11:00</p>
-                  <p><strong class="color-lead">Neděle:</strong> Zavřeno</p>
-                  <p><strong class="color-lead">Právě je:</strong> #(time) </p>
+                  <p><strong class="color-lead">Neděle:</strong> z 99.9% Zavřeno</p>
               </div>
             </div>
           </a>
@@ -54,83 +51,10 @@
                 </div>
               </a>
             </div>
-
-
-      <div class="row">
-        <div class="col-sm-4 col-md-4">
-          <div class="info-thumbnail-link">
-            <div class="thumbnail info-thumbnail with-icon background-clouds color-text">
-              <img src="img/img1.jpg" alt="...">
-              <div class="icon">
-                <span class="fa-stack">
-                  <i class="fa fa-circle fa-stack-2x color-lead"></i>
-                  <i class="fa fa-flag fa-stack-1x color-white"></i>
-                </span>
-              </div>
-              <div class="caption bordered background-white">
-                <h3>Font awesome</h3>
-                <p class="description">NEAT template supports as much modern technologies and trends as possible. One of them is font awesome icons. This great set of fonts is available anywhere you want on your page. Some of NEAT ui elements are also using font awesome like this info thumbnails.</p>
-                <p class="buttons"><a href="#" class="btn btn-lead">Read more</a></p>
-              </div>
-            </div>
           </div>
         </div>
-        <div class="col-sm-4 col-md-4">
-          <div class="info-thumbnail-link">
-            <div class="thumbnail info-thumbnail with-icon background-clouds color-text">
-              <img src="img/img2.jpg" alt="...">
-              <div class="icon">
-                <span class="fa-stack">
-                  <i class="fa fa-circle fa-stack-2x color-lead"></i>
-                  <i class="fa fa-inbox fa-stack-1x color-white"></i>
-                </span>
-              </div>
-              <div class="caption bordered background-white">
-                <h3>Color classes</h3>
-                <p class="description">You can use template elements as you have them in the examples but if you feel creative you can compose our own color combinations in ui elements. You have beautiful set of flat ui colors to work with juchange text color or background of any element on the page.</p>
-                <p class="buttons"><a href="#" class="btn btn-lead">Read more</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-          <div class="info-thumbnail-link">
-            <div class="thumbnail info-thumbnail with-icon background-clouds color-text">
-              <img src="img/img3.jpg" alt="...">
-              <div class="icon">
-                <span class="fa-stack">
-                  <i class="fa fa-circle fa-stack-2x color-alizarin"></i>
-                  <i class="fa fa-eye fa-stack-1x color-white"></i>
-                </span>
-              </div>
-              <div class="caption bordered background-white">
-                <h3>Some title</h3>
-                <p class="description color-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis velit nibh, sit amet commodo sapien tristique at. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras bibendum erat at ultricies rhoncus.</p>
-                <p class="buttons"><a href="#" class="btn btn-lead">Read more</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <section class="background-belize-hole color-white">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="info-row">
-                <div class="content info">
-                  <h1 class="info-head"><span>Kolektivní systém REMA</span></h1>
-                  <p><strong>REMA Systém je neziskově hospodařící akciová společnost, která vznikla pro splnění povinností daných novelou zákona o odpadech. Systém byl založen 14. února 2005.</strong></p>
-                    <p>Vznik REMA Systému iniciovali největší dovozci a výrobci informačních technologií a telekomunikací v ČR. Impulsem k jeho založení byla novelizace zákona č. 185/2001 Sb. o odpadech. Ta dává od 13. srpna 2005 za povinnost výrobcům a dovozcům elektrozařízení vytvořit systém, který je povinen zajistit a financovat zpětný odběr, zpracování a ekologicky šetrné odstranění elektrozařízení.</p>
 
-                </div>
-                <div class="content link">
-                  <a href="http://www.remasystem.cz/" class="btn btn-lead btn-lg pull-right">Přejít na REMA.cz</a>
-                </div>
-              </div>
-            </div>
-          </div>      </div>
-      </section>
 
 }
 
