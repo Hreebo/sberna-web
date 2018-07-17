@@ -1,7 +1,5 @@
 #set("content") {
   <div class="container container-page">
-
-
   <form method="post">
   <div class="form-row">
 
@@ -41,15 +39,8 @@
             <option  value="0">Ne</option>
             <option  value="1">Ano</option>
           }
-
-
-
-
       </select>
     </div>
-
-
-
   </div>
 
   <div class="form-group">

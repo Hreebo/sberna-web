@@ -15,10 +15,10 @@ struct WebsiteController: RouteCollection {
         authSessionRoute.post(LoginPostData.self, at: "login", use: loginPostHandler)
         authSessionRoute.post("logout", use: logoutHandler)
         
-        authSessionRoute.post(Materials.self, at: "createMaterials", use: createMaterialPostHandler)
+        authSessionRoute.post(Materials.self, at: "create-materials", use: createMaterialPostHandler)
         
         let protectedRoutes = authSessionRoute.grouped(RedirectMiddleware<User>(path: "/login"))
-        protectedRoutes.get("createMaterials", use: createMaterialHandler)
+        protectedRoutes.get("create-materials", use: createMaterialHandler)
         protectedRoutes.get("material", Materials.parameter, "edit", use: editMaterialHandler)
         protectedRoutes.post("material", Materials.parameter, "edit", use: editMaterialPostHandler)
         protectedRoutes.post("materials", Materials.parameter, "delete", use: deleteMaterialHandler)
@@ -74,7 +74,8 @@ struct WebsiteController: RouteCollection {
     }
     
     func createMaterialHandler(_ req: Request) throws -> Future<View> {
-        return try req.view().render("createMaterials")
+        let userLoggedIn = try req.isAuthenticated(User.self)
+        return try req.view().render("createMaterials", userLoggedIn)
     }
     
     func createMaterialPostHandler(_ req: Request, data: Materials) throws -> Future<Response> {
@@ -101,6 +102,7 @@ struct WebsiteController: RouteCollection {
                            req.content.decode(CreateMaterialsData.self)) { material, data in
                             material.title = data.title
                             material.desc = data.desc
+                            material.code = data.code
                             material.price = data.price
                             material.mainpage = data.mainpage
                             material.type = data.type
@@ -148,6 +150,7 @@ struct CreateMaterialsData: Content {
     let price: String
     let mainpage: String
     let type: String
+    let code: String
 }
 
 struct EditMaterialContext: Encodable {

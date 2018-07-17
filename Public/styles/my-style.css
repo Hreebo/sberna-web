@@ -1,5 +1,5 @@
 .top-nav-bar {
-  height: 40px;
+  height: 30px;
   width: auto;
   text-align: right;
   margin-right: 10px;
@@ -15,11 +15,11 @@
 
 .empty-div {
   width: 100%;
-  height: 5px;
+  height: 100px;
 }
 
 .footer-div {
-  margin-top: 100px;
+  margin-top: 0px;
   bottom: 0px;
   width: 100%;
 }
@@ -29,6 +29,7 @@
   width: 100%;
   z-index: 1030;
   top: 0px;
+  height: 75px;
 }
 
 .navbar-ul {
@@ -39,5 +40,4 @@
   float:right;
   margin-right: 30px;
   display: inline;
-
 }

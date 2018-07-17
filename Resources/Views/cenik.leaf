@@ -5,6 +5,9 @@
     <thead class="thead-light">
       <tr class="bg-primary">
         <th>
+          Kód
+        </th>
+        <th>
           Název položky
         </th>
         <th>
@@ -25,7 +28,10 @@
       #for(material in cenik) {
         <tr>
           <td>
-            #(material.title)
+            #(material.code)
+          </td>
+          <td>
+            <strong>#(material.title)</strong>
           </td>
           <td>
             #(material.desc)
@@ -52,6 +58,10 @@
     }
     </tbody>
   </table>
+</div>
+
+<div class="empty-div">
+
 </div>
 }
 

@@ -29,7 +29,17 @@
               <a class="nav-link" href="/contact">Kontakt</a>
             </li>
             #if(userLoggedIn) {
-              <li>
+              <li class="nav dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Nastavení
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="/create-materials">Položky</a>
+                          <a class="dropdown-item" href="">Another action</a>
+                          <a class="dropdown-item" href="">Something else here</a>
+                        </div>
+
+              </li>
                 <form class="form-inline" action="/logout" method="POST">
                   <input class="nav-link btn btn-alert" type="submit" value="Log out">
                 </form>
@@ -77,6 +87,7 @@
                   <div class="col-md-6">
                     Všechno práva vyhrazena &copy; 2018 <a href="http://www.sbernakrmelin.cz">LH Store s.r.o.</a>
                   </div>
+                  <a href="/login">Login</a>
 
                   </div>
                 </div>
