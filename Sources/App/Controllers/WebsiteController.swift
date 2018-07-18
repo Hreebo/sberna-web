@@ -29,7 +29,8 @@ struct WebsiteController: RouteCollection {
             let result = result.isEmpty ? nil : result
             let userLoggedIn = try req.isAuthenticated(User.self)
             let context = IndexContent(title: "Homepage",
-                                    mainpageMaterials: result, userLoggedIn: userLoggedIn)
+                                    mainpageMaterials: result,
+                                    userLoggedIn: userLoggedIn)
             return try req.view().render("index", context)
         }
     }
@@ -46,7 +47,8 @@ struct WebsiteController: RouteCollection {
             .all().flatMap(to: View.self) { cenik in
             let materialData = cenik.isEmpty ? nil : cenik
             let userLoggedIn = try req.isAuthenticated(User.self)
-            let context = CenikContent(title: "Cenik", cenik: materialData, userLoggedIn: userLoggedIn)
+            let context = CenikContent(title: "Cenik", cenik: materialData,
+                                       userLoggedIn: userLoggedIn)
             return try req.view().render("cenik", context)
         }
     }
@@ -57,7 +59,9 @@ struct WebsiteController: RouteCollection {
     }
     
     func loginPostHandler(_ req: Request, userData: LoginPostData) throws -> Future<Response> {
-        return User.authenticate(username: userData.username, password: userData.password, using: BCryptDigest(), on: req)
+        return User.authenticate(username: userData.username,
+                                 password: userData.password,
+                                 using: BCryptDigest(), on: req)
             .map(to: Response.self) { user in
                 guard let user = user else {
                     return req.redirect(to: "/login")

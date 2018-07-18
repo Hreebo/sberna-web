@@ -15,7 +15,6 @@ struct  UserController: RouteCollection {
         let userRoute = router.grouped("api", "users")
         
         userRoute.get(use: getAllHandler)
-        
     }
     
     func getAllHandler(_ req: Request) throws -> Future<[User.Public]> {
