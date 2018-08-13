@@ -47,6 +47,7 @@ struct WebsiteController: RouteCollection {
             .all().flatMap(to: View.self) { cenik in
             let materialData = cenik.isEmpty ? nil : cenik
             let userLoggedIn = try req.isAuthenticated(User.self)
+            
             let context = CenikContent(title: "Cenik", cenik: materialData,
                                        userLoggedIn: userLoggedIn)
             return try req.view().render("cenik", context)
@@ -102,15 +103,16 @@ struct WebsiteController: RouteCollection {
     }
     
     func editMaterialPostHandler(_ req: Request) throws -> Future<Response> {
+        
         return try flatMap(to: Response.self, req.parameters.next(Materials.self),
-                           req.content.decode(CreateMaterialsData.self)) { material, data in
+                           req.content.decode(CreateMaterialsData.self)) { material, data in                            
                             material.title = data.title
                             material.desc = data.desc
                             material.code = data.code
                             material.price = data.price
                             material.mainpage = data.mainpage
                             material.type = data.type
-                           
+                        
                             return material.save(on: req).map(to: Response.self) { savedMaterial in
                                 guard let id = savedMaterial.id else {
                                     throw Abort(.internalServerError)

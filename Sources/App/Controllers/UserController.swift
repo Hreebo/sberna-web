@@ -11,6 +11,7 @@ import Fluent
 import Authentication
 
 struct  UserController: RouteCollection {
+    
     func boot(router: Router) throws {
         let userRoute = router.grouped("api", "users")
         
@@ -18,9 +19,9 @@ struct  UserController: RouteCollection {
     }
     
     func getAllHandler(_ req: Request) throws -> Future<[User.Public]> {
-        return User.query(on: req).decode(User.Public.self).all()
+        return User.query(on: req).decode(data: User.Public.self).all()
     }
-    
+
     func loginHandler(_ req: Request) throws -> Future<Token> {
         let user = try req.requireAuthenticated(User.self)
         let token = try Token.generate(for: user)

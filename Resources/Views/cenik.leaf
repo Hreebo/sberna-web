@@ -16,6 +16,9 @@
         <th>
           Cena Kč/Kg
         </th>
+        <th>
+          Změna
+        </th>
         #if(userLoggedIn) {
           <th>
             Edit
@@ -35,9 +38,28 @@
           </td>
           <td>
             #(material.desc)
+          </script>
           </td>
           <td>
-            #(material.price) Kč/Kg
+
+            #(material.price)   Kč/Kg
+          </td>
+          <td>
+            #if(material.oldPrice == nil) {
+              není záznam
+            } else {
+              #if(material.oldPrice > 0) {
+                <font color="green"> &#8593; #(material.oldPrice) % </font>
+              }
+
+              #if(material.oldPrice < 0) {
+                <font color="red"> &#8595; #(material.oldPrice) % </font>
+              }
+
+              #if(material.oldPrice == 0) {
+                <font color="blue"> 0 % </font>
+              }
+            }
           </td>
           #if(userLoggedIn) {
             <td>
@@ -63,6 +85,18 @@
 <div class="empty-div">
 
 </div>
+
+<script>
+
+var x = document.getElementById("numOld").textContent;
+var y = document.getElementById("numNew").textContent;
+var result = x + y
+
+
+document.getElementById("hello1").innerHTML = result + "java";
+
+
+</script>
 }
 
 #embed("base")

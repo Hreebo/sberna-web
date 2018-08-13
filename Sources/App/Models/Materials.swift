@@ -6,9 +6,20 @@ final class Materials: Codable {
     var title: String
     var code: String
     var desc: String
-    var price: String
     var type: String
     var mainpage: String
+    
+    var price: String {
+        willSet {
+            //oldPrice = price
+            let num1 = Double(price)
+            let num2 = Double(newValue)
+            let result = ((num2! / num1!)*100)-100
+            oldPrice = String(format: "%.2f", result)
+        }
+    }
+
+    var oldPrice: String?
     
     init(title: String, desc: String, price: String, code: String, type: String, mainpage: String) {
         self.title = title
