@@ -34,4 +34,16 @@ final class Materials: Codable {
 extension Materials: PostgreSQLModel {}
 extension Materials: Content {}
 extension Materials: Parameter {}
-extension Materials: Migration {}
+extension Materials: Migration {
+    static func prepare(on connection: PostgreSQLConnection) -> Future<Void> {
+        return Database.update(Materials.self, on: connection, closure: { (builder) in
+            builder.field(for: \.oldPrice)
+        })
+    }
+    
+    static func revert(on connection: PostgreSQLConnection) -> Future<Void> {
+        return Database.update(Materials.self, on: connection, closure: { (builder) in
+            builder.deleteField(for: \.oldPrice)
+        })
+    }
+}
