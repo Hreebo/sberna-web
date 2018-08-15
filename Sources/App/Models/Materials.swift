@@ -8,7 +8,8 @@ final class Materials: Codable {
     var desc: String
     var type: String
     var mainpage: String
-    
+    var oldPrice: String?
+
     var price: String {
         willSet {
             //oldPrice = price
@@ -18,8 +19,6 @@ final class Materials: Codable {
             oldPrice = String(format: "%.2f", result)
         }
     }
-
-    var oldPrice: String?
     
     init(title: String, desc: String, price: String, code: String, type: String, mainpage: String) {
         self.title = title
@@ -34,16 +33,4 @@ final class Materials: Codable {
 extension Materials: PostgreSQLModel {}
 extension Materials: Content {}
 extension Materials: Parameter {}
-extension Materials: Migration {
-    static func prepare(on connection: PostgreSQLConnection) -> Future<Void> {
-        return Database.update(Materials.self, on: connection, closure: { (builder) in
-            builder.field(for: \.oldPrice)
-        })
-    }
-    
-    static func revert(on connection: PostgreSQLConnection) -> Future<Void> {
-        return Database.update(Materials.self, on: connection, closure: { (builder) in
-            builder.deleteField(for: \.oldPrice)
-        })
-    }
-}
+extension Materials: Migration {}
