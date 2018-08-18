@@ -1,8 +1,13 @@
 #set("content") {
 
+
 <div class="container-page container">
   <table class="table table-border table-hover">
     <thead class="thead-light">
+      <div class="container">
+        <button class="btn btn-primary" onclick="myFunction()">Tisk</button>
+        <h5 id="timeStamp"> </h5>
+      </div>
       <tr class="bg-primary">
         <th>
           Kód
@@ -85,18 +90,11 @@
 <div class="empty-div">
 
 </div>
-
 <script>
-
-var x = document.getElementById("numOld").textContent;
-var y = document.getElementById("numNew").textContent;
-var result = x + y
-
-
-document.getElementById("hello1").innerHTML = result + "java";
-
-
+var time = new Date().toLocaleString()
+document.getElementById("timeStamp").innerHTML = "Aktuální ceník: " + time;
 </script>
+    <script src="/scripts/cookies.js"></script>
 }
 
 #embed("base")
