@@ -1,3 +1,34 @@
+@media print {
+  table {
+    font-size: 14px;
+    page-break-inside: avoid;
+  }
+  footer {
+      visibility: hidden;
+  }
+  nav {
+      visibility: hidden;
+  }
+  button {
+      visibility: hidden;
+  }
+  	/* Hide table headers (but not display: none;, for accessibility) */
+  	thead tr {
+  		position: absolute;
+  	}
+
+  	tr { border: 1px solid #ccc; }
+
+  	td {
+  		/* Behave  like a "row" */
+      height: 20px;
+  		border: none;
+  		border-bottom: 1px solid #eee;
+  		position: relative;
+  		padding-left: 50%;
+  	}
+}
+
 .top-nav-bar {
   height: 30px;
   width: auto;

@@ -48,7 +48,7 @@ struct WebsiteController: RouteCollection {
             let materialData = cenik.isEmpty ? nil : cenik
             let userLoggedIn = try req.isAuthenticated(User.self)
             
-            let context = CenikContent(title: "Cenik", cenik: materialData,
+            let context = CenikContent(title: "Ceník", cenik: materialData,
                                        userLoggedIn: userLoggedIn)
             return try req.view().render("cenik", context)
         }
@@ -86,7 +86,7 @@ struct WebsiteController: RouteCollection {
     func createMaterialPostHandler(_ req: Request, data: Materials) throws -> Future<Response> {
         return data.save(on: req).map(to: Response.self) { mat in
             
-            return req.redirect(to: "/")
+            return req.redirect(to: "/cenik")
         }
     }
     

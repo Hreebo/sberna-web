@@ -2,7 +2,7 @@
 
 
 <div class="container-page container">
-  <table class="table table-border table-hover">
+  <table class="table table-border table-hover table-data">
     <thead class="thead-light">
       <div class="container">
         <button class="btn btn-primary" onclick="myFunction()">Tisk</button>
@@ -13,13 +13,13 @@
           Kód
         </th>
         <th>
-          Název položky
+          Materiál
         </th>
         <th>
-          Základná popis
+          Základní popis
         </th>
         <th>
-          Cena Kč/Kg
+          Cena
         </th>
         <th>
           Změna
