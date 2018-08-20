@@ -59,6 +59,9 @@
         <div style="display:flex;justify-content:center;margin-bottom:50px;">
           <img src="https://cdn1.iconfinder.com/data/icons/unique-round-blue/93/phone-512.png" style="width:100px;height:100px;"/>
           <h1><strong>+420 736 642 927</strong></h1>
+          <a href="https://www.facebook.com/sbernakrmelin/">
+            <img src="https://www.facebook.com/images/fb_icon_325x325.png" style="width:100px;height:100px;margin-left:100px;" />
+          </a>
         </div>
 
         <section class="background-belize-hole color-white">

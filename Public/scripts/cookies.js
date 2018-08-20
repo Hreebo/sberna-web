@@ -10,3 +10,7 @@ function myFunction() {
   //  alert(location.hostname);
   window.print();
 }
+
+function deleteOnClick() {
+  
+}
