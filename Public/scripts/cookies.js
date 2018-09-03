@@ -5,12 +5,3 @@ function cookiesConfirmed() {
     var expires = "expires="+ d.toUTCString();
     document.cookie = "cookies-accepted=true;" + expires;
 }
-
-function myFunction() {
-  //  alert(location.hostname);
-  window.print();
-}
-
-function deleteOnClick() {
-  
-}
