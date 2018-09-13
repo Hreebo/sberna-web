@@ -1,0 +1,354 @@
+#set("content") {
+
+
+<div class="container-page container" >
+  <div class="container" style="margin-bottom:40px;">
+    <button class="btn btn-primary" onclick="myFunction()">Tisk</button>
+    <h5 id="timeStamp"> </h5>
+  </div>
+
+  <table table class="table table-border table-hover">
+      #if(cenik) {
+        <tr class="bg-light">
+          <td colspan="5" style="text-align:center;">
+              <h5>Měď, Mosaz, Bronz </h5>
+          </td>
+        </tr>
+          #for(material in cenik) {
+            #if(material.type == "170401") {
+          <tr>
+            <td>
+              #(material.code)
+            </td>
+            <td>
+              #(material.title)
+            </td>
+            <td>
+              #(material.desc)
+            </td>
+            <td>
+              #(material.price) Kč/Kg
+            </td>
+            <td>
+              #if(material.oldPrice == nil) {
+                není záznam
+              } else {
+                #if(material.oldPrice > 0) {
+                  <font color="green"> &#8593; #(material.oldPrice) % </font>
+                }
+                #if(material.oldPrice < 0) {
+                  <font color="red"> &#8595; #(material.oldPrice) % </font>
+                }
+                #if(material.oldPrice == 0) {
+                  <font color="blue"> 0 % </font>
+                }
+              }
+            </td>
+            #if(userLoggedIn) {
+              <td>
+                <form method="post" action="/materials/#(material.id)/delete">
+                  <a class="btn btn-primary" href="/material/#(material.id)/edit" role="button">Edit</a>&nbsp;
+                  <input class="btn btn-danger" type="submit" value="Delete" />
+                </form>
+              </td>
+            }
+          </tr>
+        }
+      }
+      <tr class="bg-light">
+        <td colspan="5" style="text-align:center;">
+            <h5>Hliník</h5>
+        </td>
+      </tr>
+        #for(material in cenik) {
+          #if(material.type == "170402") {
+            <tr>
+              <td>
+                #(material.code)
+              </td>
+              <td>
+                #(material.title)
+              </td>
+              <td>
+                #(material.desc)
+              </td>
+              <td>
+                #(material.price) Kč/Kg
+              </td>
+              <td>
+                #if(material.oldPrice == nil) {
+                  není záznam
+                } else {
+                  #if(material.oldPrice > 0) {
+                    <font color="green"> &#8593; #(material.oldPrice) % </font>
+                  }
+                  #if(material.oldPrice < 0) {
+                    <font color="red"> &#8595; #(material.oldPrice) % </font>
+                  }
+                  #if(material.oldPrice == 0) {
+                    <font color="blue"> 0 % </font>
+                  }
+                }
+              </td>
+                #if(userLoggedIn) {
+                  <td>
+                    <form method="post" action="/materials/#(material.id)/delete">
+                      <a class="btn btn-primary" href="/material/#(material.id)/edit" role="button">Edit</a>&nbsp;
+                      <input class="btn btn-danger" type="submit" value="Delete" />
+                    </form>
+                  </td>
+                }
+            </tr>
+          }
+        }
+        <tr class="bg-light">
+          <td colspan="5" style="text-align:center;">
+              <h5>Kabely</h5>
+          </td>
+        </tr>
+          #for(material in cenik) {
+            #if(material.type == "170411") {
+              <tr>
+                <td>
+                  #(material.code)
+                </td>
+                <td>
+                  #(material.title)
+                </td>
+                <td>
+                  #(material.desc)
+                </td>
+                <td>
+                  #(material.price) Kč/Kg
+                </td>
+                <td>
+                  #if(material.oldPrice == nil) {
+                    není záznam
+                  } else {
+                    #if(material.oldPrice > 0) {
+                      <font color="green"> &#8593; #(material.oldPrice) % </font>
+                    }
+                    #if(material.oldPrice < 0) {
+                      <font color="red"> &#8595; #(material.oldPrice) % </font>
+                    }
+                    #if(material.oldPrice == 0) {
+                      <font color="blue"> 0 % </font>
+                    }
+                  }
+                </td>
+                  #if(userLoggedIn) {
+                    <td>
+                      <form method="post" action="/materials/#(material.id)/delete">
+                        <a class="btn btn-primary" href="/material/#(material.id)/edit" role="button">Edit</a>&nbsp;
+                        <input class="btn btn-danger" type="submit" value="Delete" />
+                      </form>
+                    </td>
+                  }
+              </tr>
+            }
+          }
+          <tr class="bg-light">
+            <td colspan="5" style="text-align:center;">
+                <h5>Papír a Karton</h5>
+            </td>
+          </tr>
+            #for(material in cenik) {
+              #if(material.type == "200101") {
+                <tr>
+                  <td>
+                    #(material.code)
+                  </td>
+                  <td>
+                    #(material.title)
+                  </td>
+                  <td>
+                    #(material.desc)
+                  </td>
+                  <td>
+                    #(material.price) Kč/Kg
+                  </td>
+                  <td>
+                    #if(material.oldPrice == nil) {
+                      není záznam
+                    } else {
+                      #if(material.oldPrice > 0) {
+                        <font color="green"> &#8593; #(material.oldPrice) % </font>
+                      }
+                      #if(material.oldPrice < 0) {
+                        <font color="red"> &#8595; #(material.oldPrice) % </font>
+                      }
+                      #if(material.oldPrice == 0) {
+                        <font color="blue"> 0 % </font>
+                      }
+                    }
+                  </td>
+                    #if(userLoggedIn) {
+                      <td>
+                        <form method="post" action="/materials/#(material.id)/delete">
+                          <a class="btn btn-primary" href="/material/#(material.id)/edit" role="button">Edit</a>&nbsp;
+                          <input class="btn btn-danger" type="submit" value="Delete" />
+                        </form>
+                      </td>
+                    }
+                </tr>
+              }
+            }
+            <tr class="bg-light">
+              <td colspan="5" style="text-align:center;">
+                  <h5>Zinek a Olovo</h5>
+              </td>
+            </tr>
+              #for(material in cenik) {
+                #if(material.type == "170404") {
+                  <tr>
+                    <td>
+                      #(material.code)
+                    </td>
+                    <td>
+                      #(material.title)
+                    </td>
+                    <td>
+                      #(material.desc)
+                    </td>
+                    <td>
+                      #(material.price) Kč/Kg
+                    </td>
+                    <td>
+                      #if(material.oldPrice == nil) {
+                        není záznam
+                      } else {
+                        #if(material.oldPrice > 0) {
+                          <font color="green"> &#8593; #(material.oldPrice) % </font>
+                        }
+                        #if(material.oldPrice < 0) {
+                          <font color="red"> &#8595; #(material.oldPrice) % </font>
+                        }
+                        #if(material.oldPrice == 0) {
+                          <font color="blue"> 0 % </font>
+                        }
+                      }
+                    </td>
+                      #if(userLoggedIn) {
+                        <td>
+                          <form method="post" action="/materials/#(material.id)/delete">
+                            <a class="btn btn-primary" href="/material/#(material.id)/edit" role="button">Edit</a>&nbsp;
+                            <input class="btn btn-danger" type="submit" value="Delete" />
+                          </form>
+                        </td>
+                      }
+                  </tr>
+                }
+              }
+
+          <tr class="bg-light">
+            <td colspan="5" style="text-align:center;">
+                <h5>Železo a Nerez</h5>
+            </td>
+          </tr>
+            #for(material in cenik) {
+              #if(material.type == "170405") {
+                <tr>
+                  <td>
+                    #(material.code)
+                  </td>
+                  <td>
+                    #(material.title)
+                  </td>
+                  <td>
+                    #(material.desc)
+                  </td>
+                  <td>
+                    #(material.price) Kč/Kg
+                  </td>
+                  <td>
+                    #if(material.oldPrice == nil) {
+                      není záznam
+                    } else {
+                      #if(material.oldPrice > 0) {
+                        <font color="green"> &#8593; #(material.oldPrice) % </font>
+                      }
+                      #if(material.oldPrice < 0) {
+                        <font color="red"> &#8595; #(material.oldPrice) % </font>
+                      }
+                      #if(material.oldPrice == 0) {
+                        <font color="blue"> 0 % </font>
+                      }
+                    }
+                  </td>
+                    #if(userLoggedIn) {
+                      <td>
+                        <form method="post" action="/materials/#(material.id)/delete">
+                          <a class="btn btn-primary" href="/material/#(material.id)/edit" role="button">Edit</a>&nbsp;
+                          <input class="btn btn-danger" type="submit" value="Delete" />
+                        </form>
+                      </td>
+                    }
+                </tr>
+              }
+            }
+            <tr class="bg-light">
+              <td colspan="5" style="text-align:center;">
+                  <h5>Bez označení</h5>
+              </td>
+            </tr>
+              #for(material in cenik) {
+                #if(material.type == "0") {
+                  <tr>
+                    <td>
+                      #(material.code)
+                    </td>
+                    <td>
+                      #(material.title)
+                    </td>
+                    <td>
+                      #(material.desc)
+                    </td>
+                    <td>
+                      #(material.price) Kč/Kg
+                    </td>
+                    <td>
+                      #if(material.oldPrice == nil) {
+                        není záznam
+                      } else {
+                        #if(material.oldPrice > 0) {
+                          <font color="green"> &#8593; #(material.oldPrice) % </font>
+                        }
+                        #if(material.oldPrice < 0) {
+                          <font color="red"> &#8595; #(material.oldPrice) % </font>
+                        }
+                        #if(material.oldPrice == 0) {
+                          <font color="blue"> 0 % </font>
+                        }
+                      }
+                    </td>
+                      #if(userLoggedIn) {
+                        <td>
+                          <form method="post" action="/materials/#(material.id)/delete">
+                            <a class="btn btn-primary" href="/material/#(material.id)/edit" role="button">Edit</a>&nbsp;
+                            <input class="btn btn-danger" type="submit" value="Delete" />
+                          </form>
+                        </td>
+                      }
+                  </tr>
+                }
+              }
+    }  else {
+        <tr>
+            <h1><strong>There arent any materials</strong></h1>
+        </tr>
+    }
+    </tbody>
+  </table>
+</div>
+
+<div class="empty-div"></div>
+
+<script>
+var time = new Date().toLocaleString()
+document.getElementById("timeStamp").innerHTML = "Aktuální ceník: " + time;
+
+</script>
+    <script src="/scripts/cookies.js"></script>
+}
+
+#embed("base")

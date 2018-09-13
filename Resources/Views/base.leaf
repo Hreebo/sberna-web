@@ -15,13 +15,12 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'UA-125408616-1');
     </script>
 
     <title>#(title) | Sběrna Krmelín</title>
-  </head>
 
+  </head>
   <body>
     <nav class="navbar customnav">
       <a class="navbar-brand" href="/">

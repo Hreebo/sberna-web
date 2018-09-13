@@ -13,9 +13,9 @@ final class Materials: Codable {
     var price: String {
         willSet {
             //oldPrice = price
-            let num1 = Double(price)
-            let num2 = Double(newValue)
-            let result = ((num2! / num1!)*100)-100
+            let num1 = Double(price) ?? 0.0
+            let num2 = Double(newValue) ?? 0.0
+            let result = ((num2 / num1)*100)-100
             oldPrice = String(format: "%.2f", result)
         }
     }
