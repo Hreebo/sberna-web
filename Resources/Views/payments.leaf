@@ -1,0 +1,43 @@
+#set("content") {
+
+<div class="container container-page">
+
+<H2>Platební metody</H2>
+
+
+<div class="card text-center">
+  <div class="card-header">
+     &#9733; Bankovní převod &#9733;
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text">Barevné kovy, železo a kabely se dle zákona o odpadech musejí hradit pouze bezhotovostním platebním stykem. </p>
+    <img src="https://www.banky.cz/Up/1/tn-w500-raiffeisenbanklogo1.jpg" style="width:200px;height:70px;"  />
+  </div>
+  <div class="card-footer text-muted">
+    Doba převodu:  Od provedení platby v rámci stejné banky ihned v ostatních případech 24 hodin.
+  </div>
+</div>
+
+<div class="card text-center" style="margin-top:30px;">
+  <div class="card-header">
+     &#9733; Bankovní převod &#9733;
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text">Barevné kovy, železo a kabely se dle zákona o odpadech musejí hradit pouze bezhotovostním platebním stykem. </p>
+    <img src="https://www.banky.cz/Up/1/tn-w500-raiffeisenbanklogo1.jpg" style="width:200px;height:70px;"  />
+  </div>
+  <div class="card-footer text-muted">
+    Doba převodu:  Od provedení platby v rámci stejné banky ihned v ostatních případech 24 hodin.
+  </div>
+</div>
+</div>
+
+<div class="empty-div">
+
+</div>
+
+}
+
+#embed("base")

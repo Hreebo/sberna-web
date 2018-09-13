@@ -43,13 +43,16 @@
                   <div class="caption">
                     <h3><span class="color-lead"></span> Může se hodit</h3>
                       <a href="https://itunes.apple.com/us/app/sberna-cenik/id1159270544?mt=8">
-                        <img src="/img/app_store.png" style="width:190px;height:55px;">
+                        <img src="/img/app_store.png" style="width:140px;height:45px;">
                       </a>
                       <a href="https://play.google.com/store/apps/details?id=com.lukas.aplha8.cenik_android&hl=cs">
-                        <img src="/img/google_app.png" style="width:190px;height:80px;">
+                        <img src="/img/google_app.png" style="width:140px;height:60px;">
                       </a>
-                      <a href="https://www.bitcoin.com">
-                        <img src="http://4.bp.blogspot.com/_kgPQJRIac-s/TTcnhpiM6KI/AAAAAAAACVU/74_KDYo3hoo/s1600/weAcceptBitcoin.png" style="width:190px;height:80px;">
+                      <a href="http://www.bitcoin.com">
+                        <img src="http://4.bp.blogspot.com/_kgPQJRIac-s/TTcnhpiM6KI/AAAAAAAACVU/74_KDYo3hoo/s1600/weAcceptBitcoin.png" style="width:140px;height:60px;">
+                      </a>
+                      <a href="https://www.paypal.com/">
+                        <img src="http://pngimg.com/uploads/paypal/paypal_PNG23.png" style="width:140px;height:50px;margin:3px;">
                       </a>
                   </div>
                 </div>

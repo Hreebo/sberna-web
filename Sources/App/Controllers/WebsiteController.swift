@@ -10,6 +10,7 @@ struct WebsiteController: RouteCollection {
         authSessionRoute.get(use: indexHandler)
         authSessionRoute.get("cenik", use: cenikHandler)
         authSessionRoute.get("contact", use: contactHandler)
+        authSessionRoute.get("payments", use: payments)
         
         authSessionRoute.get("login", use: loginHandler)
         authSessionRoute.post(LoginPostData.self, at: "login", use: loginPostHandler)
@@ -52,6 +53,10 @@ struct WebsiteController: RouteCollection {
                                        userLoggedIn: userLoggedIn)
             return try req.view().render("cenik", context)
         }
+    }
+    
+    func payments(_ req: Request) throws -> Future<View> {
+        return try req.view().render("payments")
     }
     
     func loginHandler(_ req: Request) throws -> Future<View> {
