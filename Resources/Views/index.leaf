@@ -1,7 +1,35 @@
 #set("content") {
 
+  
+
   <section class="background-white color-black">
     <div class="container-page container">
+
+ <section class="color-black">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="info-row">
+                  <div class="content info">
+                    <h1 class="info-head"><span style="text-align: center">Nabízíme ekologickou likvidaci autovraků !</span></h1>
+                    <p><strong class="color-lead"> - Váš automobil odvezeme - Vystavíme doklad o likvidaci - Trvale vyřadíme z registru - Vaše odměna od 1000 Kč</strong></p>
+                 
+                      <p> Odvoz zdarma! </p>
+                      <h3> více na: + 606 577 677</h3>
+                    
+                    
+                  
+                   </div>
+
+
+                  
+    
+                </div>
+              </div>
+            </div>     
+             </div>
+        </section>
+
       <div class="row">
 
         <div class="col-sm-4 col-md-4">
@@ -69,6 +97,8 @@
             <img src="https://www.facebook.com/images/fb_icon_325x325.png" style="width:100px;height:100px;margin-left:100px;" />
           </a>
         </div>
+
+    
 
         <section class="background-belize-hole color-white">
           <div class="container">

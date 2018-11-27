@@ -21,11 +21,11 @@
 
 <div class="card text-center" style="margin-top:30px;">
   <div class="card-header">
-     &#9733; Bankovní převod &#9733;
+     &#9733; Hotovostní platba &#9733;
   </div>
   <div class="card-body">
     <h5 class="card-title"></h5>
-    <p class="card-text">Barevné kovy, železo a kabely se dle zákona o odpadech musejí hradit pouze bezhotovostním platebním stykem. </p>
+    <p class="card-text">Papír, Pb baterie a elektrodpady </p>
     <img src="https://www.banky.cz/Up/1/tn-w500-raiffeisenbanklogo1.jpg" style="width:200px;height:70px;"  />
   </div>
   <div class="card-footer text-muted">
