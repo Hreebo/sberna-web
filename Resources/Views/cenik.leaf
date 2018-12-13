@@ -3,14 +3,15 @@
 
 <div class="container-page container" >
   <div class="container" style="margin-bottom:40px;">
-    <button class="btn btn-primary" onclick="myFunction()">Tisk</button>
-    <h5 id="timeStamp"> </h5>
+    <button class="btn btn-primary" onclick="myFunc();">Tisk</button>
+    <h5 id="timeStamp"> </h5> <h5>Kurz Bitcoinu #(bitcoin.CZK) CZK</h5>
+  
   </div>
 
   <table table class="table table-border table-hover">
       #if(cenik) {
         <tr class="bg-light">
-          <td colspan="5" style="text-align:center;">
+          <td colspan="6" style="text-align:center;">
               <h5>Měď, Mosaz, Bronz </h5>
           </td>
         </tr>
@@ -30,6 +31,10 @@
               #(material.price) Kč/Kg
             </td>
             <td>
+                   &#8383; #round(material.price / bitcoin.CZK) BTC/Kg
+                  
+            </td>
+            <td>
               #if(material.oldPrice == nil) {
                 není záznam
               } else {
@@ -44,6 +49,7 @@
                 }
               }
             </td>
+            
             #if(userLoggedIn) {
               <td>
                 <form method="post" action="/materials/#(material.id)/delete">
@@ -56,7 +62,7 @@
         }
       }
       <tr class="bg-light">
-        <td colspan="5" style="text-align:center;">
+        <td colspan="6" style="text-align:center;">
             <h5>Hliník</h5>
         </td>
       </tr>
@@ -75,6 +81,9 @@
               <td>
                 #(material.price) Kč/Kg
               </td>
+              <td>
+                    &#8383; #round(material.price / bitcoin.CZK) BTC/Kg
+            </td>
               <td>
                 #if(material.oldPrice == nil) {
                   není záznam
@@ -102,7 +111,7 @@
           }
         }
         <tr class="bg-light">
-          <td colspan="5" style="text-align:center;">
+          <td colspan="6" style="text-align:center;">
               <h5>Kabely</h5>
           </td>
         </tr>
@@ -120,6 +129,9 @@
                 </td>
                 <td>
                   #(material.price) Kč/Kg
+                </td>
+                <td>
+                    &#8383; #round(material.price / bitcoin.CZK) BTC/Kg
                 </td>
                 <td>
                   #if(material.oldPrice == nil) {
@@ -148,7 +160,7 @@
             }
           }
           <tr class="bg-light">
-            <td colspan="5" style="text-align:center;">
+            <td colspan="6" style="text-align:center;">
                 <h5>Papír a Karton</h5>
             </td>
           </tr>
@@ -166,6 +178,9 @@
                   </td>
                   <td>
                     #(material.price) Kč/Kg
+                  </td>
+                  <td>
+                    &#8383; #round(material.price / bitcoin.CZK) BTC/Kg
                   </td>
                   <td>
                     #if(material.oldPrice == nil) {
@@ -194,7 +209,7 @@
               }
             }
             <tr class="bg-light">
-              <td colspan="5" style="text-align:center;">
+              <td colspan="6" style="text-align:center;">
                   <h5>Zinek a Olovo</h5>
               </td>
             </tr>
@@ -213,6 +228,9 @@
                     <td>
                       #(material.price) Kč/Kg
                     </td>
+                    <td>
+                   &#8383; #round(material.price / bitcoin.CZK) BTC/Kg
+                  </td>
                     <td>
                       #if(material.oldPrice == nil) {
                         není záznam
@@ -241,7 +259,7 @@
               }
 
           <tr class="bg-light">
-            <td colspan="5" style="text-align:center;">
+            <td colspan="6" style="text-align:center;">
                 <h5>Železo a Nerez</h5>
             </td>
           </tr>
@@ -259,6 +277,9 @@
                   </td>
                   <td>
                     #(material.price) Kč/Kg
+                  </td>
+                  <td>
+                   &#8383; #round(material.price / bitcoin.CZK) BTC/Kg
                   </td>
                   <td>
                     #if(material.oldPrice == nil) {
@@ -287,7 +308,7 @@
               }
             }
             <tr class="bg-light">
-              <td colspan="5" style="text-align:center;">
+              <td colspan="6" style="text-align:center;">
                   <h5>Bez označení</h5>
               </td>
             </tr>
@@ -306,6 +327,9 @@
                     <td>
                       #(material.price) Kč/Kg
                     </td>
+                    <td>
+                      &#8383; #round(material.price / bitcoin.CZK) BTC/Kg
+                     </td>
                     <td>
                       #if(material.oldPrice == nil) {
                         není záznam
@@ -344,11 +368,12 @@
 <div class="empty-div"></div>
 
 <script>
-var time = new Date().toLocaleString()
-document.getElementById("timeStamp").innerHTML = "Aktuální ceník: " + time;
+var time = new Date().toLocaleString();
+document.getElementById('timeStamp').innerHTML = "Aktuální ceník: " + time;
 
 </script>
-    <script src="/scripts/cookies.js"></script>
+
+<script src="/scripts/cookies.js"></script>
 }
 
 #embed("base")

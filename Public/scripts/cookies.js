@@ -4,4 +4,12 @@ function cookiesConfirmed() {
     d.setTime(d.getTime() + (365*24*60*60*1000));
     var expires = "expires="+ d.toUTCString();
     document.cookie = "cookies-accepted=true;" + expires;
-}
+};
+
+function myFunc() {
+    window.print();
+    document.getElementById('abc').innerHTML = "dsdsd";
+
+};
+
+

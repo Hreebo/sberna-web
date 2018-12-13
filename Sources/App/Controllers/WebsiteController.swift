@@ -32,6 +32,9 @@ struct WebsiteController: RouteCollection {
             let context = IndexContent(title: "Homepage",
                                     mainpageMaterials: result,
                                     userLoggedIn: userLoggedIn)
+            
+            
+            
             return try req.view().render("index", context)
         }
     }
@@ -43,16 +46,46 @@ struct WebsiteController: RouteCollection {
     }
 
     func cenikHandler(_ req: Request) throws -> Future<View> {
+    
+        let bitcoinURL = "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=CZK"
+        
+        return try req.client().get(bitcoinURL).flatMap(to: View.self) { resp in
+            let btc = try resp.content.syncDecode(Bitcoin.self)
+        
+            
+            //return try req.view().render("cenik")
+            return Materials.query(on: req)
+                .sort(\.title, .ascending)
+                .all().flatMap(to: View.self) { cenik in
+                    let materialData = cenik.isEmpty ? nil : cenik
+                    let userLoggedIn = try req.isAuthenticated(User.self)
+                    let context = CenikContent(title: "Ceník", cenik: materialData,
+                                               userLoggedIn: userLoggedIn, bitcoin: btc)
+                    
+                    return try req.view().render("cenik", context)
+                    
+            }
+
+        }
+    
+//        return try req.client().get(bitcoinURL).flatMap(to: View.self) { request in
+//            let context = try request.content.syncDecode(View.self)
+//            return try req.view().render("cenik", context)
+//        }
+        
+        /*
         return Materials.query(on: req)
             .sort(\.title, .ascending)
             .all().flatMap(to: View.self) { cenik in
-            let materialData = cenik.isEmpty ? nil : cenik
-            let userLoggedIn = try req.isAuthenticated(User.self)
-            
-            let context = CenikContent(title: "Ceník", cenik: materialData,
-                                       userLoggedIn: userLoggedIn)
+                let materialData = cenik.isEmpty ? nil : cenik
+                let userLoggedIn = try req.isAuthenticated(User.self)
+                let context = CenikContent(title: "Ceník", cenik: materialData,
+                                           userLoggedIn: userLoggedIn)
+                
             return try req.view().render("cenik", context)
+            
         }
+ */
     }
     
     func payments(_ req: Request) throws -> Future<View> {
@@ -139,6 +172,7 @@ struct CenikContent: Encodable {
     let title: String
     let cenik: [Materials]?
     let userLoggedIn: Bool
+    let bitcoin: Bitcoin
 }
 
 struct ContactContent: Encodable {
@@ -169,3 +203,8 @@ struct EditMaterialContext: Encodable {
     let material: Materials
     let editing = true
 }
+
+struct Bitcoin: Content {
+    let CZK: Double
+}
+

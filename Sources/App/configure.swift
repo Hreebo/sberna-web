@@ -9,6 +9,12 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     try services.register(FluentPostgreSQLProvider())
     try services.register(LeafProvider())
     try services.register(AuthenticationProvider())
+    
+    services.register { container -> LeafTagConfig in
+        var config = LeafTagConfig.default()
+        config.use(RoundNumberTag(), as: "round")
+        return config
+    }
 
     /// Register routes to the router
     let router = EngineRouter.default()
