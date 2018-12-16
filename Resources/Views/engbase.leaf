@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,28 +18,27 @@
         gtag('config', 'UA-125408616-1');
     </script>
 
-    <title>#(title) | Sběrna Krmelín</title>
+    <title>#(title) | Recycling Krmelin</title>
 
   </head>
   <body>
     <nav class="navbar customnav">
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href="/eng/engindex">
         <img src="/img/sberna-logo.png" width="160" height="50" class="d-inline-block align-top" alt="">
       </a>
 
-
-      <ul class="navbar-ul">
-        <li class="nav">
-          <a href="/eng/engindex">
-        <img src="/images/GB-flag.png" width="31" height="20" class="d-inline-block align-top" alt="">
-      </a>
-        </li>
-        <li class="nav">
-          <a href="/" style="margin-left:7px">
-        <img src="/images/CZ-flag.png" width="31" height="20" class="d-inline-block align-top" alt="">
-      </a>
-        </li>
-      </ul>
+            <ul class="navbar-ul">
+              <li class="nav">
+                <a href="/eng/engindex">
+              <img src="/images/GB-flag.png" width="31" height="20" class="d-inline-block align-top" alt="">
+            </a>
+              </li>
+              <li class="nav">
+                <a href="/" style="margin-left:7px">
+              <img src="/images/CZ-flag.png" width="31" height="20" class="d-inline-block align-top" alt="">
+            </a>
+              </li>
+            </ul>
 
       <div class="navbar-menu">
           <ul class="navbar-ul">
@@ -47,10 +46,10 @@
               <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav">
-              <a class="nav-link" href="/cenik">Ceník</a>
+              <a class="nav-link" href="/eng/engpricelist">Price List</a>
             </li>
             <li class="nav">
-              <a class="nav-link" href="/contact">Kontakt</a>
+              <a class="nav-link" href="/eng/engcontact">Contact</a>
             </li>
             #if(userLoggedIn) {
               <li class="nav dropdown">
@@ -72,7 +71,7 @@
     </nav>
 
     <div>
-      #get(content)
+      #get(engcontent)
     </div>
 
     <footer class="background-midnight-blue color-white footer-div">
@@ -82,22 +81,22 @@
                 <h3>Menu</h3>
                 <ul class="nav-footer">
                     <li class="active"><a href="/">Home</a></li>
-                    <li><a href="/cenik">Cenik</a></li>
-                    <li><a href="/contact">Kontakt</a></li>
+                    <li><a href="/cenik">Price List</a></li>
+                    <li><a href="/contact">Contacts</a></li>
                 </ul>
               </div>
               <div class="col-md-4">
-                <h3>O nás</h3>
-                    <p class="testimonial">IČO: 27801586, DIČ: CZ27801586</p>
+                <h3>About company</h3>
+                    <p class="testimonial">ID: 27801586, VAT: CZ27801586</p>
                     <p class="testimonial">Staroveská 567, 739 24 Krmelín</p>
-                    <p class="testimonial">tel: +420 736 642 927</p>
-                    <p class="testimonial">banka: Raiffeisen 278010/5500</p>
+                    <p class="testimonial">phone: +420 736 642 927</p>
+                    <p class="testimonial">bank: Raiffeisen 278010/5500</p>
 
               </div>
               <div class="col-md-5">
-                <h3>Provozovny</h3>
-                  <p class="testomonial"> Sběr a výkup kovů: CZT01353</p>
-                  <p class="testomonial"> Elektroodpady: CZT01244</p>
+                <h3>Factory</h3>
+                  <p class="testomonial"> Metal Waste: CZT01353</p>
+                  <p class="testomonial"> Electro Waste: CZT01244</p>
 
 
               </div>
@@ -107,7 +106,7 @@
                 <hr>
                 <div class="row">
                   <div class="col-md-6">
-                    Všechno práva vyhrazena &copy; 2018 <a href="http://www.sbernakrmelin.cz">LH Store s.r.o.</a>
+                    Allright reserved &copy; 2018 <a href="http://www.sbernakrmelin.cz">LH Store s.r.o.</a>
                   </div>
                   <a href="/login">Login</a>
 

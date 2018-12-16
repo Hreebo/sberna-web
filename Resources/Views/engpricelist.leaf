@@ -1,24 +1,18 @@
-#set("content") {
+#set("engcontent") {
 
 
 <div class="container-page container" >
   <div class="container" style="margin-bottom:40px;">
-    <button class="btn btn-primary" onclick="myFunc();">Tisk</button>
-    <h5 id="timeStamp"> </h5> <h5>Kurz Bitcoinu #(bitcoin.CZK) CZK</h5>
+    <button class="btn btn-primary" onclick="myFunc();">Print</button>
+    <h5 id="timeStamp"> </h5> <h5>Bitcoin #(bitcoin.CZK) CZK</h5>
 
-  </div>
-  <div class="container" style="text-align:center">
-    Ceny se mohou lišit dle množství a dohody. Velkoobchodní ceny na dotaz.  <p>
-
-    </p>
-    <b>! Na čem se domluvíme to vždy platí !</b>
   </div>
 
   <table table class="table table-border table-hover">
       #if(cenik) {
         <tr class="bg-light">
           <td colspan="6" style="text-align:center;">
-              <h5>Měď, Mosaz, Bronz </h5>
+              <h5>Copper, Brass, Bronze </h5>
           </td>
         </tr>
           #for(material in cenik) {
@@ -69,7 +63,7 @@
       }
       <tr class="bg-light">
         <td colspan="6" style="text-align:center;">
-            <h5>Hliník</h5>
+            <h5>Aluminium</h5>
         </td>
       </tr>
         #for(material in cenik) {
@@ -118,7 +112,7 @@
         }
         <tr class="bg-light">
           <td colspan="6" style="text-align:center;">
-              <h5>Kabely</h5>
+              <h5>Cable's</h5>
           </td>
         </tr>
           #for(material in cenik) {
@@ -167,7 +161,7 @@
           }
           <tr class="bg-light">
             <td colspan="6" style="text-align:center;">
-                <h5>Papír a Karton</h5>
+                <h5>Paper</h5>
             </td>
           </tr>
             #for(material in cenik) {
@@ -216,7 +210,7 @@
             }
             <tr class="bg-light">
               <td colspan="6" style="text-align:center;">
-                  <h5>Zinek a Olovo</h5>
+                  <h5>Zinc & Lead</h5>
               </td>
             </tr>
               #for(material in cenik) {
@@ -266,7 +260,7 @@
 
           <tr class="bg-light">
             <td colspan="6" style="text-align:center;">
-                <h5>Železo a Nerez</h5>
+                <h5>Iron & Stainless steel</h5>
             </td>
           </tr>
             #for(material in cenik) {
@@ -315,7 +309,7 @@
             }
             <tr class="bg-light">
               <td colspan="6" style="text-align:center;">
-                  <h5>Bez označení</h5>
+                  <h5>Other's</h5>
               </td>
             </tr>
               #for(material in cenik) {
@@ -375,11 +369,11 @@
 
 <script>
 var time = new Date().toLocaleString();
-document.getElementById('timeStamp').innerHTML = "Aktuální ceník: " + time;
+document.getElementById('timeStamp').innerHTML = "Current pricelist: " + time;
 
 </script>
 
 <script src="/scripts/cookies.js"></script>
 }
 
-#embed("base")
+#embed("engbase")

@@ -9,15 +9,9 @@ import Async
 import Leaf
 
 public final class RoundNumberTag: TagRenderer {
-    
-    init() {}
-   
     public func render(tag: TagContext) throws -> EventLoopFuture<TemplateData> {
-    
         let number = tag.parameters[0].double
         let str = String(format: "%.6f", number!)
         return tag.container.future(.string(str))
     }
-    
-    
 }

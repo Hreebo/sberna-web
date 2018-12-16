@@ -1,0 +1,50 @@
+#set("engcontent") {
+
+<div class="container-page container">
+  <section class="">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h1><span>Contact us</span></h1>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2578.7797249808705!2d18.222025151346113!3d49.733771046523024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4713e5564c25a8cd%3A0x89c89ef43479e3af!2sStarovesk%C3%A1+567%2C+739+24+Krmel%C3%ADn!5e0!3m2!1scs!2scz!4v1473164439836" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-md-6">
+              <div class="thumbnail info-thumbnail padding1 background-clouds color-black">
+                <div class="caption background-white">
+                  <h3>Contact</h3>
+                  <p><span class="fa fa-home color-lead"></span> Staroveská 567, 739 24 Krmelín, CZ</p>
+                  <p><span class="fa fa-envelope color-lead"></span> info@sbernakrmelin.cz</p>
+                  <p><span class="fa fa-phone-square color-lead"></span> +420 736 642 927</p>
+                  <p><span class="fa fa-globe color-lead"></span> <a href="#">www.sbernakrmelin.cz</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+              <div class="thumbnail info-thumbnail padding1 background-clouds color-black">
+                <div class="caption background-white">
+                  <h3>Opening hours</h3>
+                  <p><strong class="color-lead">Monday - Friday:</strong> 8:00 - 11:30 break  12:30 - 16:00</p>
+                  <p><strong class="color-lead">First saturday in the month</strong> 9:00 - 11:00</p>
+                  <p><strong class="color-lead">Sunday:</strong> Closed</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+      </section>
+</div>
+
+}
+
+#embed("engbase")

@@ -1,9 +1,9 @@
-#set("content") {
+#set("engcontent") {
   <section class="background-white color-black">
     <div class="container-page container">
 
       <div class="container" style="text-align:center">
-        <h5> Vykupujeme a likvidujeme autovraky * železné kovy * barevné kovy * pb baterie * elektroodpady * kabely * papír </h5>
+        <h5> We buy and disable car wrecks * ferrous metals * non-ferrous metals * pb batteries * electrodepacks * cables * paper </h5>
         <hr />
       </div>
 
@@ -13,28 +13,27 @@
               <div class="col-md-12">
                 <div class="info-row">
                   <div class="content info">
-                    <h1 class="info-head"> NOVĚ Nabízíme ekologickou likvidaci autovraků</h1>
-                    <p><strong class="color-lead"> Váš automobil odvezeme - Vystavíme doklad o likvidaci - Trvale vyřadíme z registru - Vaše odměna od 1000 Kč až ...</strong></p>
+                    <h1 class="info-head"> NEW We offer an ecological disposal of car wrecks</h1>
+                    <p><strong class="color-lead"> We will take your car - We will issue a proof of disposal - We will permanently exclude from your registry - Your reward from CZK 1000 to ...</strong></p>
 
-                      <p> Odvoz zdarma samozřejmostí </p>
-                      <h3> volejte ihned: + 606 577 677</h3>
+                      <p> Free transport charges </p>
+                      <h3> call now: + 606 577 677</h3>
                    </div>
                 </div>
               </div>
             </div>
              </div>
 
-
       <div class="row">
 
         <div class="col-sm-4 col-md-4">
-          <a class="info-thumbnail-link" href="/contact" >
+          <a class="info-thumbnail-link" href="/eng/engcontact" >
             <div class="thumbnail info-thumbnail">
               <div class="caption">
-                <h3><span class="fa fa-flag color-lead"></span> Otevírací doba</h3>
-                  <p><strong class="color-lead">Pondělí - Pátek:</strong> 8:00 - 11:30 12:30 - 16:00</p>
-                  <p><strong class="color-lead">Sobota:</strong> První sobota v měsící od 9:00 do 11:00</p>
-                  <p><strong class="color-lead">Neděle:</strong> z 99.9% Zavřeno</p>
+                <h3><span class="fa fa-flag color-lead"></span> Opening hours</h3>
+                  <p><strong class="color-lead">Monday - Friday:</strong> 8:00 - 11:30 12:30 - 16:00</p>
+                  <p><strong class="color-lead">Saturday:</strong> First in the month from 9:00 to 11:00</p>
+                  <p><strong class="color-lead">Sunday:</strong> from 99.9% closed</p>
               </div>
             </div>
           </a>
@@ -42,10 +41,10 @@
 
 
             <div class="col-sm-4 col-md-4">
-              <a class="info-thumbnail-link" href="/cenik">
+              <a class="info-thumbnail-link" href="/eng/engpricelist">
                 <div class="thumbnail info-thumbnail">
                   <div class="caption">
-                    <h3><span class="fa fa-flag color-lead"></span> Aktuální ceny</h3>
+                    <h3><span class="fa fa-flag color-lead"></span> Current price's CZK</h3>
                     #if(count(mainpageMaterials) > 0) {
                       #for(result in mainpageMaterials) {
                         <p><strong class="color-lead">#(result.title)  - </strong> #(result.price) Kč/Kg</p>
@@ -64,7 +63,7 @@
               <a class="info-thumbnail-link" href="">
                 <div class="thumbnail info-thumbnail">
                   <div class="caption">
-                    <h3><span class="color-lead"></span> Může se hodit</h3>
+                    <h3><span class="color-lead"></span>May be interesting</h3>
                       <a href="https://itunes.apple.com/us/app/sberna-cenik/id1159270544?mt=8">
                         <img src="/img/app_store.png" style="width:140px;height:45px;">
                       </a>
@@ -101,9 +100,9 @@
               <div class="col-md-12">
                 <div class="info-row">
                   <div class="content info">
-                    <h1 class="info-head"><span>Kolektivní systém REMA</span></h1>
-                    <p><strong>REMA Systém je neziskově hospodařící akciová společnost, která vznikla pro splnění povinností daných novelou zákona o odpadech. Systém byl založen 14. února 2005.</strong></p>
-                      <p>Vznik REMA Systému iniciovali největší dovozci a výrobci informačních technologií a telekomunikací v ČR. Impulsem k jeho založení byla novelizace zákona č. 185/2001 Sb. o odpadech. Ta dává od 13. srpna 2005 za povinnost výrobcům a dovozcům elektrozařízení vytvořit systém, který je povinen zajistit a financovat zpětný odběr, zpracování a ekologicky šetrné odstranění elektrozařízení.</p>
+                    <h1 class="info-head"><span>REMA Collective System</span></h1>
+                    <p><strong>REMA System is a non-profit-making joint-stock company, established for the fulfillment of the obligations stipulated by the amendment to the Act on Waste. The system was established on February 14, 2005.</strong></p>
+                      <p>The emergence of the REMA System was initiated by the largest importers and producers of information technology and telecommunications in the Czech Republic. The impulse for its establishment was an amendment to Act No. 185/2001 Coll. about waste. Since 13 August 2005, it has been obligated for manufacturers and importers of electrical and electronic equipment to set up a system which is responsible for ensuring and financing the take-back, processing and environmentally sound disposal of electrical and electronic equipment.</p>
 
                   </div>
                   <div class="content link">
@@ -118,4 +117,4 @@
 
 }
 
-#embed("base")
+#embed("engbase")

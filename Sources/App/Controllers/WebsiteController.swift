@@ -7,11 +7,17 @@ import Foundation
 struct WebsiteController: RouteCollection {
     func boot(router: Router) throws {
         let authSessionRoute = router.grouped(User.authSessionsMiddleware())
+        
         authSessionRoute.get(use: indexHandler)
         authSessionRoute.get("cenik", use: cenikHandler)
         authSessionRoute.get("contact", use: contactHandler)
         authSessionRoute.get("payments", use: payments)
         
+        //English translate
+        authSessionRoute.get("eng/engindex", use: engIndexHadnler)
+        authSessionRoute.get("eng/engcontact", use: engcontactHandler)
+        authSessionRoute.get("eng/engpricelist", use: engcenikHandler)
+
         authSessionRoute.get("login", use: loginHandler)
         authSessionRoute.post(LoginPostData.self, at: "login", use: loginPostHandler)
         authSessionRoute.post("logout", use: logoutHandler)
@@ -25,6 +31,44 @@ struct WebsiteController: RouteCollection {
         protectedRoutes.post("materials", Materials.parameter, "delete", use: deleteMaterialHandler)
     }
     
+    //MARK: English
+    func engIndexHadnler(_ req: Request) throws -> Future<View> {
+        return Materials.query(on: req).filter(\.mainpage == "1").all().flatMap(to: View.self) { result in
+            let result = result.isEmpty ? nil : result
+            let userLoggedIn = try req.isAuthenticated(User.self)
+            let context = IndexContent(title: "Homepage",
+                                       mainpageMaterials: result,
+                                       userLoggedIn: userLoggedIn)
+            return try req.view().render("engindex", context)
+        }
+    }
+    
+    func engcontactHandler(_ req: Request) throws -> Future<View> {
+        let userLoggedIn = try req.isAuthenticated(User.self)
+        let context = ContactContent(title: "Contact", userLoggedIn: userLoggedIn)
+        return try req.view().render("engcontact", context)
+    }
+    
+    func engcenikHandler(_ req: Request) throws -> Future<View> {
+        let bitcoinURL = "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=CZK"
+        
+        return try req.client().get(bitcoinURL).flatMap(to: View.self) { resp in
+            let btc = try resp.content.syncDecode(Bitcoin.self)
+        
+            //return try req.view().render("cenik")
+            return Materials.query(on: req)
+                .sort(\.title, .ascending)
+                .all().flatMap(to: View.self) { cenik in
+                    let materialData = cenik.isEmpty ? nil : cenik
+                    let userLoggedIn = try req.isAuthenticated(User.self)
+                    let context = CenikContent(title: "Price List", cenik: materialData,
+                                               userLoggedIn: userLoggedIn, bitcoin: btc)
+                    
+                    return try req.view().render("engpricelist", context)
+            }
+        }
+    }
+    
     func indexHandler(_ req: Request) throws -> Future<View> {
         return Materials.query(on: req).filter(\.mainpage == "1").all().flatMap(to: View.self) { result in
             let result = result.isEmpty ? nil : result
@@ -32,9 +76,6 @@ struct WebsiteController: RouteCollection {
             let context = IndexContent(title: "Homepage",
                                     mainpageMaterials: result,
                                     userLoggedIn: userLoggedIn)
-            
-            
-            
             return try req.view().render("index", context)
         }
     }
