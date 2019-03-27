@@ -12,6 +12,7 @@ struct WebsiteController: RouteCollection {
         authSessionRoute.get("cenik", use: cenikHandler)
         authSessionRoute.get("contact", use: contactHandler)
         authSessionRoute.get("payments", use: payments)
+        authSessionRoute.get("elektroodpad-cenik", use: elektroodpady)
         
         //English translate
         authSessionRoute.get("eng/engindex", use: engIndexHadnler)
@@ -127,6 +128,10 @@ struct WebsiteController: RouteCollection {
             
         }
  */
+    }
+    
+    func elektroodpady(_ req: Request) throws -> Future<View> {
+        return try req.view().render("elektroodpad-cenik")
     }
     
     func payments(_ req: Request) throws -> Future<View> {

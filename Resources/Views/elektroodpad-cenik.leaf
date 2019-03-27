@@ -1,0 +1,8 @@
+#set("content") {
+
+<div class="container">
+  <<h1>Elektro</h1>
+</div>
+
+}
+#embed("base")

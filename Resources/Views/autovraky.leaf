@@ -1,0 +1,9 @@
+#set("content") {
+
+<div class="container-page container" >
+<h1>Informace o zajištění autovraků</h1>
+</div>
+
+
+}
+#embed("base")
