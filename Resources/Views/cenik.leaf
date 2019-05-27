@@ -1,6 +1,5 @@
 #set("content") {
 
-
 <div class="container-page container" >
   <div class="container" style="margin-bottom:40px;">
     <button class="btn btn-primary" onclick="myFunc();">Tisk</button>

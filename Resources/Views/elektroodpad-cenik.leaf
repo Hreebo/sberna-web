@@ -1,8 +1,11 @@
 #set("content") {
 
+<div class="container-page container"></div>
+
 <div class="container">
-  <<h1>Elektro</h1>
+  <h1>Elektro</h1>
 </div>
 
 }
+
 #embed("base")
