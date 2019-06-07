@@ -10,12 +10,19 @@ struct MaterialsController: RouteCollection {
         materialsRoutes.get("search", use: searchHandler)
         materialsRoutes.get("sorted", use: sortedHandler)
         
+        materialsRoutes.get("elektro", use: getAllElektro)
+        
         let tokenAuthMiddleware = User.tokenAuthMiddleware()
         let guardAuthMiddlerware = User.guardAuthMiddleware()
         let tokenAuthGroup = materialsRoutes.grouped(tokenAuthMiddleware, guardAuthMiddlerware)
         tokenAuthGroup.post(MaterialCreateData.self, use: createHandler)
         tokenAuthGroup.delete(Materials.parameter, use: deleteHandler)
         tokenAuthGroup.put(Materials.parameter, use: updateHandler)
+    }
+    
+    
+    func getAllElektro(_ req: Request) throws -> Future<[ComponentsMaterial]> {
+        return ComponentsMaterial.query(on: req).all()
     }
     
     func getAllMaterials(_ req: Request) throws -> Future<[Materials]> {

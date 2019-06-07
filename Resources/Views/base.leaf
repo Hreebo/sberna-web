@@ -79,7 +79,8 @@
                            Nastavení
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <a class="dropdown-item" href="/create-materials">Položky</a>
+                          <a class="dropdown-item" href="/create-materials">Položky Kovy</a>
+                          <a class="dropdown-item" href="/create-elektro-material">Položky Elektro</a>
                         </div>
 
               </li>

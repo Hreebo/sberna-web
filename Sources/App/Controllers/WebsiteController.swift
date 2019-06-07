@@ -24,12 +24,20 @@ struct WebsiteController: RouteCollection {
         authSessionRoute.post("logout", use: logoutHandler)
         
         authSessionRoute.post(Materials.self, at: "create-materials", use: createMaterialPostHandler)
+        authSessionRoute.post(ComponentsMaterial.self, at: "create-elektro-material", use: createElektroPostHandler)
         
         let protectedRoutes = authSessionRoute.grouped(RedirectMiddleware<User>(path: "/login"))
         protectedRoutes.get("create-materials", use: createMaterialHandler)
+        protectedRoutes.get("create-elektro-material", use: createElektroComponentHandler)
         protectedRoutes.get("material", Materials.parameter, "edit", use: editMaterialHandler)
         protectedRoutes.post("material", Materials.parameter, "edit", use: editMaterialPostHandler)
         protectedRoutes.post("materials", Materials.parameter, "delete", use: deleteMaterialHandler)
+        
+        protectedRoutes.post("elektro", ComponentsMaterial.parameter, "delete", use: deleteElektroHandler)
+        protectedRoutes.get("elektro", ComponentsMaterial.parameter, "edit", use: editElektroHandler)
+        protectedRoutes.post("elektro", ComponentsMaterial.parameter, "edit", use: editElektroPostHandler)
+
+
     }
     
     //MARK: English
@@ -129,11 +137,7 @@ struct WebsiteController: RouteCollection {
         }
  */
     }
-    
-    func elektroodpady(_ req: Request) throws -> Future<View> {
-        return try req.view().render("elektroodpad-cenik")
-    }
-    
+
     func payments(_ req: Request) throws -> Future<View> {
         return try req.view().render("payments")
     }
@@ -160,6 +164,63 @@ struct WebsiteController: RouteCollection {
     func logoutHandler(_ req: Request) throws -> Response {
         try req.unauthenticateSession(User.self)
         return req.redirect(to: "/")
+    }
+    
+    func elektroodpady(_ req: Request) throws -> Future<View> {
+        return ComponentsMaterial.query(on: req)
+            .sort(\.title, .ascending)
+            .all().flatMap(to: View.self) { cenik in
+                let materialData = cenik.isEmpty ? nil : cenik
+                let userLoggedIn = try req.isAuthenticated(User.self)
+                let context = ElektroCenikContant(title: "Ceník Elektroodpad", cenik: materialData,
+                                                  userLoggedIn: userLoggedIn)
+                
+                return try req.view().render("elektroodpad-cenik", context)
+        }
+    }
+    
+    func createElektroComponentHandler(_ req: Request) throws -> Future<View> {
+        let userLoggedIn = try req.isAuthenticated(User.self)
+        return try req.view().render("create-elektro-material", userLoggedIn)
+    }
+    
+    func createElektroPostHandler(_ req: Request, data: ComponentsMaterial) throws -> Future<Response> {
+        return data.save(on: req).map(to: Response.self)  { elektro in
+            return req.redirect(to: "/elektroodpad-cenik")
+        }
+    }
+    
+    func deleteElektroHandler(_ req: Request) throws -> Future<Response> {
+        return try req.parameters.next(ComponentsMaterial.self).delete(on: req)
+            .transform(to: req.redirect(to: "/elektroodpad-cenik"))
+    }
+    
+    func editElektroHandler(_ req: Request) throws -> Future<View> {
+        return try req.parameters.next(ComponentsMaterial.self).flatMap(to: View.self) { material in
+            let context = EditElektroContext(material: material)
+            return try req.view().render("create-elektro-material", context)
+        }
+    }
+    
+    func editElektroPostHandler(_ req: Request) throws -> Future<Response> {
+        return try flatMap(to: Response.self, req.parameters.next(ComponentsMaterial.self),
+                           req.content.decode(CreateElektroData.self)) { material, data in
+                            material.title = data.title
+                            material.desc = data.desc
+                            material.code = data.code
+                            material.priceKg = data.priceKg
+                            material.priceQt = data.priceQt
+                            material.imageUrl = data.imageUrl
+                            material.type = data.type
+                            
+                            return material.save(on: req).map(to: Response.self) { savedMaterial in
+                                guard let id = savedMaterial.id else {
+                                    throw Abort(.internalServerError)
+                                }
+                                
+                                return req.redirect(to: "/elektroodpad-cenik")
+                            }
+        }
     }
     
     func createMaterialHandler(_ req: Request) throws -> Future<View> {
@@ -221,6 +282,12 @@ struct CenikContent: Encodable {
     let bitcoin: Bitcoin
 }
 
+struct ElektroCenikContant: Encodable {
+    let title: String
+    let cenik: [ComponentsMaterial]?
+    let userLoggedIn: Bool
+}
+
 struct ContactContent: Encodable {
     let title: String
     let userLoggedIn: Bool
@@ -233,6 +300,22 @@ struct LoginContext: Encodable {
 struct LoginPostData: Content {
     let username: String
     let password: String
+}
+
+struct CreateElektroData: Content {
+    let title: String
+    let desc: String
+    let priceKg: String
+    let priceQt: String
+    let type: String
+    let code: String
+    let imageUrl: String
+}
+
+struct EditElektroContext: Encodable {
+    let title = "Edit Elektro"
+    let material: ComponentsMaterial
+    let editing = true
 }
 
 struct CreateMaterialsData: Content {

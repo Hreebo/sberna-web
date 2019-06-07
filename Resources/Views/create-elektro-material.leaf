@@ -1,0 +1,49 @@
+#set("content") {
+  <div class="container container-page">
+  <form method="post">
+  <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Název Materiálu</label>
+      <input type="text" class="form-control" name= "title" placeholder="Název" #if(editing){value="#(material.title)"}>
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="inputPassword4">URL Obrázku</label>
+      <input type="text" class="form-control" name="imageUrl" placeholder="Url pic" #if(editing){value="#(material.imageUrl)"}>
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="inputPassword4">Cena Kč/Kg</label>
+      <input type="number" step="1" class="form-control" name="priceKg" placeholder="Cena Kg" #if(editing){value="#(material.priceKg)"}>
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="inputPassword4">Type</label>
+      <input type="text" class="form-control" name="type" placeholder="Type" #if(editing){value="#(material.type)"}>
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="inputPassword4">Code</label>
+      <input type="text" class="form-control" name="code" placeholder="Code" #if(editing){value="#(material.code)"}>
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="inputPassword4">Cena kus</label>
+      <input type="number" step="1" class="form-control" name="priceQt" placeholder="Cena Qt" #if(editing){value="#(material.priceQt)"}>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputAddress">Základní popis</label>
+      <input type="text" class="form-control" name="desc" placeholder="Základní popis materiálu" #if(editing){value="#(material.desc)"}>
+    </div>
+
+      <button type="submit" class="btn btn-primary">#if(editing){Uložit změnu} else {Uložit}</button>
+
+</form>
+</div>
+<div class="empty-div"></div>
+
+}
+
+#embed("base")

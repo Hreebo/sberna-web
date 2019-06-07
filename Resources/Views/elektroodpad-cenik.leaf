@@ -1,11 +1,264 @@
 #set("content") {
 
-<div class="container-page container"></div>
+<div class="container-page container">
 
 <div class="container">
-  <h1>Elektro</h1>
+  <h3>Elektroodpad - Komponenty - Vyřazená elektrozařízení</h3>
+  <h5 id="timeStamp"> </h5>
+</div>
+<div style="text-align:right;margin-bottom:40px" >
+  <a href="/cenik"> <button type="button" class="btn btn-primary btn-lg"> Ceník Kovy</button></a>
+<a href="/elektroodpad-cenik">  <button type="button" class="btn btn-primary btn-lg"> Ceník Elektro</button></a>
 </div>
 
+  <table table class="table table-border table-hover">
+    #if(cenik) {
+      <tr class="bg-light">
+        <td colspan="6" style="text-align:center;">
+            <h5>Procesory CPU</h5>
+        </td>
+      </tr>
+      #for(material in cenik) {
+        #if(material.type == "cpu") {
+        <tr>
+          <td>
+            <img src="#(material.imageUrl)" width="200px" height="200px" alt="Hello" class="img-thumbnail">
+          </td>
+          <td>
+            #(material.title)
+          </td>
+          <td>
+            #(material.desc)
+          </td>
+          <td>
+            #(material.priceKg) Kč/Kg
+          </td>
+
+          #if(userLoggedIn) {
+            <td>
+              <form method="post" action="/elektro/#(material.id)/delete">
+                <a class="btn btn-primary" href="/elektro/#(material.id)/edit" role="button">Edit</a>&nbsp;
+                <input class="btn btn-danger" type="submit" value="Delete" />
+              </form>
+            </td>
+            }
+        </tr>
+        }
+      }
+
+      <tr class="bg-light">
+        <td colspan="6" style="text-align:center;">
+            <h5>ostatní PC Komponenty</h5>
+        </td>
+      </tr>
+      #for(material in cenik) {
+        #if(material.type == "pc-komponenty") {
+        <tr>
+          <td>
+            <img src="#(material.imageUrl)" width="200px" height="200px" alt="Hello" class="img-thumbnail">
+          </td>
+          <td>
+            #(material.title)
+          </td>
+          <td>
+            #(material.desc)
+          </td>
+          <td>
+            #(material.priceKg) Kč/Kg
+          </td>
+
+          #if(userLoggedIn) {
+            <td>
+              <form method="post" action="/elektro/#(material.id)/delete">
+                <a class="btn btn-primary" href="/elektro/#(material.id)/edit" role="button">Edit</a>&nbsp;
+                <input class="btn btn-danger" type="submit" value="Delete" />
+              </form>
+            </td>
+            }
+        </tr>
+        }
+      }
+
+      <tr class="bg-light">
+        <td colspan="6" style="text-align:center;">
+            <h5>Mobilní telefóny</h5>
+        </td>
+      </tr>
+      #for(material in cenik) {
+        #if(material.type == "mobil") {
+        <tr>
+          <td>
+            <img src="#(material.imageUrl)" width="200px" height="200px" alt="Hello" class="img-thumbnail">
+          </td>
+          <td>
+            #(material.title)
+          </td>
+          <td>
+            #(material.desc)
+          </td>
+          <td>
+            #(material.priceKg) Kč/Kg
+          </td>
+
+          #if(userLoggedIn) {
+            <td>
+              <form method="post" action="/elektro/#(material.id)/delete">
+                <a class="btn btn-primary" href="/elektro/#(material.id)/edit" role="button">Edit</a>&nbsp;
+                <input class="btn btn-danger" type="submit" value="Delete" />
+              </form>
+            </td>
+            }
+        </tr>
+        }
+      }
+
+      <tr class="bg-light">
+        <td colspan="6" style="text-align:center;">
+            <h5>Výpočetní technika komplety</h5>
+        </td>
+      </tr>
+      #for(material in cenik) {
+        #if(material.type == "technika-komplet") {
+        <tr>
+          <td>
+            <img src="#(material.imageUrl)" width="200px" height="200px" alt="Hello" class="img-thumbnail">
+          </td>
+          <td>
+            #(material.title)
+          </td>
+          <td>
+            #(material.desc)
+          </td>
+          <td>
+            #(material.priceKg) Kč/Kg
+          </td>
+
+          #if(userLoggedIn) {
+            <td>
+              <form method="post" action="/elektro/#(material.id)/delete">
+                <a class="btn btn-primary" href="/elektro/#(material.id)/edit" role="button">Edit</a>&nbsp;
+                <input class="btn btn-danger" type="submit" value="Delete" />
+              </form>
+            </td>
+            }
+        </tr>
+        }
+      }
+
+      <tr class="bg-light">
+        <td colspan="6" style="text-align:center;">
+            <h5>Ostatní</h5>
+        </td>
+      </tr>
+      #for(material in cenik) {
+        #if(material.type == "ostatni") {
+        <tr>
+          <td>
+            <img src="#(material.imageUrl)" width="200px" height="200px" alt="Hello" class="img-thumbnail">
+          </td>
+          <td>
+            #(material.title)
+          </td>
+          <td>
+            #(material.desc)
+          </td>
+          <td>
+            #(material.priceKg) Kč/Kg
+          </td>
+
+          #if(userLoggedIn) {
+            <td>
+              <form method="post" action="/elektro/#(material.id)/delete">
+                <a class="btn btn-primary" href="/elektro/#(material.id)/edit" role="button">Edit</a>&nbsp;
+                <input class="btn btn-danger" type="submit" value="Delete" />
+              </form>
+            </td>
+            }
+        </tr>
+        }
+      }
+
+      <tr class="bg-light">
+        <td colspan="6" style="text-align:center;">
+            <h5>Tištěné spoje</h5>
+        </td>
+      </tr>
+      #for(material in cenik) {
+        #if(material.type == "tistene-spoje") {
+        <tr>
+          <td>
+            <img src="#(material.imageUrl)" width="200px" height="200px" alt="Hello" class="img-thumbnail">
+          </td>
+          <td>
+            #(material.title)
+          </td>
+          <td>
+            #(material.desc)
+          </td>
+          <td>
+            #(material.priceKg) Kč/Kg
+          </td>
+
+          #if(userLoggedIn) {
+            <td>
+              <form method="post" action="/elektro/#(material.id)/delete">
+                <a class="btn btn-primary" href="/elektro/#(material.id)/edit" role="button">Edit</a>&nbsp;
+                <input class="btn btn-danger" type="submit" value="Delete" />
+              </form>
+            </td>
+            }
+        </tr>
+        }
+      }
+
+      <tr class="bg-light">
+        <td colspan="6" style="text-align:center;">
+            <h5>Vyřazená elektrozařízení</h5>
+        </td>
+      </tr>
+      #for(material in cenik) {
+        #if(material.type == "elektrozarizeni") {
+        <tr>
+          <td>
+            <img src="#(material.imageUrl)" width="200px" height="200px" alt="Hello" class="img-thumbnail">
+          </td>
+          <td>
+            #(material.title)
+          </td>
+          <td>
+            #(material.desc)
+          </td>
+          <td>
+            #(material.priceKg) Kč/Kg
+          </td>
+
+          #if(userLoggedIn) {
+            <td>
+              <form method="post" action="/elektro/#(material.id)/delete">
+                <a class="btn btn-primary" href="/elektro/#(material.id)/edit" role="button">Edit</a>&nbsp;
+                <input class="btn btn-danger" type="submit" value="Delete" />
+              </form>
+            </td>
+            }
+        </tr>
+        }
+      }
+
+      } else {
+        <tr>
+          <h1>There arent any materials</h1>
+        </tr>
+      }
+
+    </table>
+</div>
+
+
+<script>
+var time = new Date().toLocaleString();
+document.getElementById('timeStamp').innerHTML = "Aktuální ceník: " + time;
+
+</script>
 }
 
 #embed("base")

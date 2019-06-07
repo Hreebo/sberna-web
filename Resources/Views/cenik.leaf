@@ -1,13 +1,21 @@
 #set("content") {
 
 <div class="container-page container" >
-  <div class="container" style="margin-bottom:40px;">
-    <button class="btn btn-primary" onclick="myFunc();">Tisk</button>
-    <h5 id="timeStamp"> </h5> <h5>Kurz Bitcoinu #(bitcoin.CZK) CZK</h5>
+  <div class="container" style="margin-bottom:40px">
+  <!--  <button class="btn btn-primary" onclick="myFunc();">Tisk</button> -->
+    <h3>Železo - Barevné kovy - Kabely - Pb baterie - Ostatní</h3>
+      <h5 id="timeStamp"> </h5> <h5>Kurz Bitcoinu #(bitcoin.CZK) CZK</h5>
+    <div style="text-align:right">
+      <a href="/cenik"><button type="button" class="btn btn-primary btn-lg"> Ceník Kovy</button></a>
+    <a href="/elektroodpad-cenik">  <button type="button" class="btn btn-primary btn-lg"> Ceník Elektro</button></a>
+    </div>
+
+
 
   </div>
   <div class="container" style="text-align:center">
-    Ceny se mohou lišit dle množství a dohody. Velkoobchodní ceny na dotaz.  <p>
+    Ceny se mohou lišit dle množství a dohody. Velkoobchodní ceny na dotaz.
+    <p>
 
     </p>
     <b>! Na čem se domluvíme to vždy platí !</b>
@@ -62,7 +70,7 @@
                   <input class="btn btn-danger" type="submit" value="Delete" />
                 </form>
               </td>
-            }
+              }
           </tr>
         }
       }
