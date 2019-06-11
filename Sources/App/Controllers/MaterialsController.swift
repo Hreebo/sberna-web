@@ -9,7 +9,8 @@ struct MaterialsController: RouteCollection {
         materialsRoutes.get(Materials.parameter, use: getHandler)
         materialsRoutes.get("search", use: searchHandler)
         materialsRoutes.get("sorted", use: sortedHandler)
-        
+        materialsRoutes.delete("del", use: deleteHandler)
+
         materialsRoutes.get("elektro", use: getAllElektro)
         
         let tokenAuthMiddleware = User.tokenAuthMiddleware()
