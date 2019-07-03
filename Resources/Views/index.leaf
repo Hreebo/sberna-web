@@ -20,6 +20,11 @@
               </div>
             </div>
           </div>
+          <div class="container" style="text-align:center; margin-bottom:50px">
+            <h1><b>Pátek 5.6 a Sobota 6.6. Zavřeno státní svátek.</b></h1>
+
+         </div>
+
       <div class="row">
 
         <div class="col-sm-4 col-md-4">
@@ -79,33 +84,6 @@
 
           </div>
         </div>
-
-        <div class="container" style="text-align:center">
-          <h3><b>Děkujeme za přízeň v roce 2018. Velmi si toho vážíme.</b></h3>
-          <div class="row" style="color:white">
-
-            <div class="col-sm-6">
-              <div class="card" style="background-color:lightslategray">
-                <div class="card-body">
-                  <h5 class="card-title">Přijato a zpracováno</h5>
-                    <p class="card-text">920 tun materiálu</p>
-                </div>
-              </div>
-            </div>
-
-          <div class="col-sm-6">
-            <div class="card" style="background-color:lightslategray">
-              <div class="card-body">
-                <h5 class="card-title">Obsloužili jsme</h5>
-                <p class="card-text">4084 zákazníku</p>
-              </div>
-            </div>
-         </div>
-
-        </div>
-       </div>
-
-
 
         <div style="display:flex;justify-content:center;margin-bottom:50px;">
           <img src="https://cdn1.iconfinder.com/data/icons/unique-round-blue/93/phone-512.png" style="width:100px;height:100px;"/>
